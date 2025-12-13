@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TechSection } from './components/TechSection';
 import { WhyChooseMe } from './components/WhyChooseMe';
+import { PortfolioCarousel } from './components/PortfolioCarousel';
 import { ProcessSection } from './components/ProcessSection';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
@@ -19,6 +20,7 @@ function App() {
         <Hero />
         <TechSection />
         <WhyChooseMe />
+        <PortfolioCarousel />
         <ProcessSection />
         <Pricing />
       </main>
