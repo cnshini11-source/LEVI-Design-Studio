@@ -5,9 +5,9 @@ import { MessageCircle, ArrowLeft, Sparkles } from 'lucide-react';
 export const Pricing: React.FC = () => {
   return (
     <section id="contact" className="py-32 bg-slate-950 relative overflow-hidden flex items-center justify-center">
-      {/* Background Elements - Static */}
+      {/* Background Elements - Static & GPU optimized */}
       <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-[100px] transform-gpu" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       </div>
 
@@ -43,8 +43,8 @@ export const Pricing: React.FC = () => {
              rel="noopener noreferrer"
              className="group relative inline-flex items-center gap-4 px-10 py-6 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full text-xl md:text-2xl font-black tracking-wide shadow-lg transition-all duration-300 overflow-hidden transform hover:scale-[1.02] active:scale-[0.98]"
            >
-             {/* Simplified Shine - CSS transition */}
-             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out skew-x-12" />
+             {/* Simplified Shine - CSS transition via Transform for performance */}
+             <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out skew-x-12 will-change-transform" />
              
              <MessageCircle className="w-8 h-8 md:w-9 md:h-9 fill-current" />
              <span>בוא נדבר על העסק שלכם</span>

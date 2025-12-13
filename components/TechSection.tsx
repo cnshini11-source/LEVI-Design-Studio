@@ -5,8 +5,8 @@ import { BrainCircuit, Activity } from 'lucide-react';
 export const TechSection: React.FC = () => {
   return (
     <section id="tech" className="py-20 bg-slate-950 relative overflow-hidden">
-        {/* Lightweight Background - just gradients, no heavy blurs */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+        {/* Lightweight Background - transform-gpu ensures it's on a separate layer */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20 transform-gpu will-change-transform">
              <div className="absolute top-[10%] right-[-5%] w-[300px] h-[300px] bg-blue-900/20 rounded-full blur-3xl" />
         </div>
         
@@ -44,7 +44,7 @@ export const TechSection: React.FC = () => {
                    transition={{ duration: 0.6 }}
                 >
                     {/* Static Glow */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-2xl blur-sm opacity-50" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-2xl blur-sm opacity-50 will-change-transform" />
                     
                     <div className="relative h-full bg-slate-900/80 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col justify-between overflow-hidden">
                         
