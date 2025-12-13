@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Cpu } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,27 +31,28 @@ export const Header: React.FC = () => {
       style={{ backgroundColor: headerBackground, backdropFilter: backdropBlur }}
       className={`fixed top-0 left-0 right-0 z-50 border-b border-white/5 transition-colors duration-300`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10">
+      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center relative z-10">
         
-        {/* Logo */}
+        {/* Logo - Centered, Larger, More "Alive" */}
         <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 cursor-pointer"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-4 cursor-pointer group"
         >
-          <div className="relative w-10 h-10 flex items-center justify-center bg-cyan-500/10 rounded-lg border border-cyan-500/50">
-            <Cpu className="text-cyan-400 w-6 h-6 animate-pulse" />
+          {/* Icon Container with Glow */}
+          <div className="relative w-14 h-14 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-white/10 group-hover:border-cyan-500/50 transition-all duration-500 shadow-[0_0_20px_rgba(6,182,212,0.15)] overflow-hidden">
+            {/* Inner animated gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <Sparkles className="text-cyan-400 w-8 h-8 relative z-10 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
           </div>
-          <span className="text-2xl font-black tracking-wider text-white">SHINI</span>
+
+          {/* Text */}
+          <span className="text-4xl md:text-5xl font-black tracking-wider text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-cyan-200 transition-all duration-300 drop-shadow-lg">
+            SHINI
+          </span>
         </motion.div>
 
-        {/* Contact Button Only */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-lg text-sm font-bold border border-white/10 transition-colors"
-        >
-            צור קשר
-        </motion.button>
       </div>
     </motion.header>
   );

@@ -140,7 +140,7 @@ export const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row gap-6 relative z-10"
         >
           <Button variant="primary">
-            התחל פרויקט <ArrowLeft className="w-5 h-5 mr-2" />
+            בוא נדבר <ArrowLeft className="w-5 h-5 mr-2" />
           </Button>
           <Button variant="secondary">
             איך זה עובד?

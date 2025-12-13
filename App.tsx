@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { TechSection } from './components/TechSection';
 import { WhyChooseMe } from './components/WhyChooseMe';
 import { ProcessSection } from './components/ProcessSection';
-import { Funnel } from './components/Funnel';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
 import { AccessibilityMenu } from './components/AccessibilityMenu';
@@ -21,7 +20,6 @@ function App() {
         <TechSection />
         <WhyChooseMe />
         <ProcessSection />
-        <Funnel />
         <Pricing />
       </main>
       <Footer />
