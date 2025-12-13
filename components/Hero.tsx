@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-6 leading-tight"
         >
-          אתרים מבוססי AI
+          אתרים ודפי נחיתה
           <br />
           <span className="text-cyan-400">שמייצרים תוצאות.</span>
         </motion.h1>
