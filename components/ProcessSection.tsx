@@ -21,7 +21,7 @@ export const ProcessSection: React.FC = () => {
             מכונת לידים
           </h2>
           <p className="text-lg text-slate-300">
-            תהליך עבודה מדויק, שקוף ומבוסס נתונים. בלי הפתעות, רק תוצאות.
+            תהליך עבודה מדויק, שקוף ומבוסס נתונים. אני בונה עבורך נכס דיגיטלי שעובד.
           </p>
         </motion.div>
 
@@ -77,19 +77,20 @@ export const ProcessSection: React.FC = () => {
                       אפיון ואסטרטגיה
                    </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">יורדים לשורש העסק</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">אני יורד לשורש העסק שלך</h3>
                 <p className="text-slate-400 text-base leading-relaxed mb-4">
-                    אנחנו לא מתחילים לעצב לפני שאנחנו מבינים בדיוק מי אתם.
-                    תהליך האפיון הוא המפה שלנו. אנחנו ננתח את קהל היעד, נבין את הכאבים שלהם, ונבנה את המשפך השיווקי שיוביל אותם לפעולה.
+                    לפני שאני מותח קו אחד של עיצוב או כותב שורת קוד, אני צולל לעומק העולם העסקי שלך.
+                    אני אלמד מי הקהל שלך, אזהה את הכאבים שלהם, ואמפה את המסלול המדויק שיהפוך גולש מזדמן ללקוח משלם.
+                    זה לא סתם "אתר" – זו התשתית להצלחה שלך.
                 </p>
                 <ul className="space-y-2">
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                        הבנת ה-DNA העסקי והבידול שלכם.
+                        חקר עומק של ה-DNA העסקי והבידול שלך.
                     </li>
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                        מיפוי מסע לקוח מלא מכניסה ועד המרה.
+                        בניית משפך שיווקי מותאם אישית למטרות שלך.
                     </li>
                 </ul>
              </motion.div>
@@ -110,19 +111,19 @@ export const ProcessSection: React.FC = () => {
                       UI/UX ועיצוב
                    </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">עיצוב ממוקד המרה</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">עיצוב פסיכולוגי ממוקד המרה</h3>
                 <p className="text-slate-400 text-base leading-relaxed mb-4">
-                    זה לא רק "יפה", זה פסיכולוגי. העיצוב שלנו נבנה כדי לשדר אמינות, יוקרה וסמכות.
-                    כל צבע, כפתור ואנימציה ממוקמים במטרה אחת: לגרום לגולש להישאר, להתעניין ולקנות.
+                    אני לא רק מעצב אתר שיהיה "יפה", אלא בונה חוויה.
+                    כל צבע, כפתור, פונט ואנימציה ממוקמים על ידי במחשבה תחילה ובאסטרטגיה ברורה: לשדר יוקרה, לבנות סמכות מיידית, ולייצר אצל הגולש דחף בלתי נשלט להמשיך לקרוא ולבצע פעולה.
                 </p>
                 <ul className="space-y-2">
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                        חווית משתמש שמונעת נטישה.
+                        שימוש בטריגרים פסיכולוגיים למניעת נטישה.
                     </li>
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                        עיצוב מותאם אישית שמבדל אתכם מהמתחרים.
+                        עיצוב ייחודי (Custom Made) שלא נראה כמו שום תבנית אחרת.
                     </li>
                 </ul>
              </motion.div>
@@ -219,19 +220,19 @@ export const ProcessSection: React.FC = () => {
                       מעטפת טכנולוגית
                    </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">שקט נפשי מלא (Turn-Key)</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">אני דואג להכל – אפס כאב ראש בשבילך</h3>
                 <p className="text-slate-400 text-base leading-relaxed mb-4">
-                    אתם לא צריכים להבין בשרתים, קוד או אינטגרציות. אנחנו מספקים לכם מעטפת 360 מעלות.
-                    האתר מגיע מחובר למערכת ניהול לידים, כפתור וואטסאפ חכם, אחסון מהיר ומאובטח, ודומיין.
+                    אתה לא צריך להבין בשרתים, בדומיינים או באינטגרציות. אני מספק לך מעטפת טכנולוגית הרמטית (Turn-Key).
+                    מהרגע הראשון, האתר מגיע עם שרתים מהירים בטירוף, אבטחה מקסימלית, וחיבורים חכמים למערכות הניהול שלך. הכל כדי שתוכל להתמקד בלסגור עסקאות.
                 </p>
                 <ul className="space-y-2">
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full" />
-                        הלידים מגיעים ישירות למייל ולנייד שלכם.
+                        חיבור ישיר של הלידים לנייד, למייל או ל-CRM שלך.
                     </li>
                     <li className="flex items-center gap-2 text-slate-300 text-sm">
                         <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full" />
-                        אפס התעסקות טכנית מצדכם – הכל עלינו.
+                        טיפול מלא בתחזוקה טכנית ובאחסון.
                     </li>
                 </ul>
              </motion.div>
@@ -255,29 +256,29 @@ export const ProcessSection: React.FC = () => {
                           <Rocket className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-3xl md:text-4xl font-black text-white mb-4">השקה, הדרכה ויציאה לדרך</h3>
+                      <h3 className="text-3xl md:text-4xl font-black text-white mb-4">השקה, הדרכה ויציאה לדרך משותפת</h3>
                       <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-                          זהו הרגע הגדול. אנחנו מעלים את המערכת לאוויר, אבל לא עוזבים אתכם.
-                          תקבלו הדרכה מלאה ומפורטת (כולל הקלטה) על איך לנהל את האתר, איך לקרוא את הנתונים, ואיך להשתמש במכונה שבנינו עבורכם.
+                          רגע העלייה לאוויר הוא מרגש, אבל אני לא עוזב אותך שם.
+                          אני נשאר בתמונה, מספק הדרכה אישית ומפורטת על איך לתפעל את המכונה שבניתי לך, ואיך לקרוא את הנתונים כדי למקסם רווחים באופן שוטף. ההצלחה שלך היא כרטיס הביקור שלי.
                       </p>
 
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-4xl">
                           <div className="bg-slate-800/50 p-5 rounded-2xl border border-white/5 flex flex-col items-center hover:bg-slate-800 transition-colors">
                               <Server className="text-yellow-400 w-6 h-6 mb-3" />
                               <h4 className="font-bold text-white mb-1.5">אחסון אתרים (Hosting)</h4>
-                              <p className="text-xs text-slate-400">אנו דואגים לאחסון מאובטח ומהיר. אפס התעסקות טכנית מצדכם.</p>
+                              <p className="text-xs text-slate-400">אני דואג לאחסון מהיר כברק. האתר שלך תמיד זמין.</p>
                           </div>
                           <div className="bg-slate-800/50 p-5 rounded-2xl border border-white/5 flex flex-col items-center hover:bg-slate-800 transition-colors">
                               <Globe className="text-cyan-400 w-6 h-6 mb-3" />
                               <h4 className="font-bold text-white mb-1.5">חיבור דומיין</h4>
-                              <p className="text-xs text-slate-400">מחברים את הכתובת שלכם לאתר בצורה חלקה. הכל כלול במעטפת.</p>
+                              <p className="text-xs text-slate-400">הכתובת העסקית שלך מחוברת ומוכנה. הכל עליי.</p>
                           </div>
                           <div className="bg-slate-800/50 p-5 rounded-2xl border border-white/5 flex flex-col items-center hover:bg-slate-800 transition-colors">
                               <div className="relative">
                                 <MessageSquare className="text-green-400 w-6 h-6 mb-3" />
                               </div>
                               <h4 className="font-bold text-white mb-1.5">תמיכה אישית</h4>
-                              <p className="text-xs text-slate-400">אני כאן לכל שאלה גם אחרי העלייה לאוויר.</p>
+                              <p className="text-xs text-slate-400">יש לך למי לפנות. אני זמין לכל שאלה בוואטסאפ.</p>
                           </div>
                       </div>
                   </div>
