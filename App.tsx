@@ -1,5 +1,4 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TechSection } from './components/TechSection';
@@ -13,7 +12,7 @@ import { ScrollProgress } from './components/ScrollProgress';
 
 function App() {
   return (
-    <div className="bg-slate-950 min-h-screen text-white selection:bg-cyan-500/30">
+    <div className="bg-[#010206] min-h-screen text-white selection:bg-cyan-500/30">
       <Header />
       <ScrollProgress />
       <main>

@@ -6,8 +6,7 @@ import { ChevronDown, ArrowLeft, Rocket, Sparkles } from 'lucide-react';
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const yRange = useTransform(scrollY, [0, 500], [0, 200]);
-
+  
   // Generate stars with memoization
   const stars = useMemo(() => {
     return Array.from({ length: 40 }).map((_, i) => ({
@@ -21,15 +20,14 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 selection:bg-cyan-500/30">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#010206] selection:bg-cyan-500/30">
       
-      {/* --- BACKGROUND EFFECTS (Optimized for GPU) --- */}
+      {/* --- BACKGROUND EFFECTS --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Cyber Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         
-        {/* 1. Cyber Grid - Static, lightweight CSS pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        
-        {/* 2. Twinkling Stars - GPU Accelerated */}
+        {/* Stars */}
         {stars.map((star) => (
             <div
                 key={star.id}
@@ -46,108 +44,157 @@ export const Hero: React.FC = () => {
             />
         ))}
 
-        {/* 3. Ambient Color Glows - Added transform-gpu to force layer promotion */}
-        <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-purple-600/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-1000 transform-gpu" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-cyan-600/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[4s] transform-gpu" />
+        {/* Ambient Glows */}
+        <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-purple-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-1000 transform-gpu" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-cyan-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[4s] transform-gpu" />
 
-        {/* 4. Scanner Line - Optimized to use TranslateY (Composite) instead of Top (Layout) */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent w-full animate-[scan_8s_ease-in-out_infinite] opacity-0 shadow-[0_0_15px_rgba(6,182,212,0.5)] will-change-transform" />
-
-        {/* 5. Floating Particles - Converted to CSS animation for main thread offloading */}
-        {[...Array(6)].map((_, i) => (
-            <div
-                key={i}
-                className="absolute w-1 h-1 bg-white rounded-full blur-[1px] animate-[floatParticle_10s_linear_infinite]"
-                style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDuration: `${Math.random() * 10 + 10}s`,
-                    animationDelay: `-${Math.random() * 10}s`,
-                    opacity: 0
-                }}
-            />
-        ))}
+        {/* Scanner Line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent w-full animate-[scan_8s_ease-in-out_infinite] opacity-0 shadow-[0_0_15px_rgba(6,182,212,0.3)] will-change-transform" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-        
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-slate-900/50 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] relative group overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-          <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-          <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
-        </motion.div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 lg:pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* TEXT CONTENT (Right Side in RTL) */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-right order-1">
+                
+                {/* Badge */}
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-slate-900/50 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] relative group overflow-hidden"
+                >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+                <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
+                </motion.div>
 
-        {/* Main Title */}
-        <div className="relative">
-            <motion.h1 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative z-10 text-5xl md:text-8xl font-black text-white mb-6 leading-tight tracking-tight"
-            >
-              אתרים ודפי נחיתה
-              <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto]">
-                  שמייצרים תוצאות.
-              </span>
-            </motion.h1>
-        </div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-xl md:text-2xl text-slate-300 max-w-3xl mb-12 leading-relaxed relative z-10 font-light"
-        >
-          SHINI בונה מערכות חכמות עם חוויית משתמש מבוססת <span className="font-bold text-white">AI</span> ומשפך שיווקי שעובד 24/7.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-6 relative z-10"
-        >
-          <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary">
-                בוא נדבר <ArrowLeft className="w-5 h-5 mr-2" />
-              </Button>
-          </a>
-          <Button variant="secondary">
-            איך זה עובד?
-          </Button>
-        </motion.div>
-
-      </div>
-
-      {/* Floating Rocket - Optimized with will-change */}
-      <motion.div 
-            style={{ y: yRange }}
-            className="absolute right-4 bottom-24 md:right-10 md:bottom-10 pointer-events-none select-none z-20 opacity-90 will-change-transform"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-        >
-            <motion.div
-                animate={{ y: [-15, 15, -15], rotate: [0, 2, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
+                {/* Main Title */}
                 <div className="relative">
-                    <div className="absolute inset-0 bg-cyan-500/30 blur-2xl rounded-full" />
-                    <div className="transform -rotate-45 relative z-10">
-                        <Rocket className="w-24 h-24 md:w-48 md:h-48 text-white stroke-[1.5] drop-shadow-[0_0_25px_rgba(6,182,212,0.6)]" />
+                    <motion.h1 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="relative z-10 text-5xl md:text-8xl font-black text-white mb-6 leading-tight tracking-tight"
+                    >
+                    אתרים ודפי נחיתה
+                    <br />
+                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto]">
+                        שמייצרים תוצאות.
+                    </span>
+                    </motion.h1>
+                </div>
+
+                {/* Subtitle */}
+                <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 leading-relaxed relative z-10 font-light"
+                >
+                SHINI בונה מערכות חכמות עם חוויית משתמש מבוססת <span className="font-bold text-white">AI</span> ומשפך שיווקי שעובד 24/7.
+                </motion.p>
+
+                {/* CTAs */}
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="flex flex-col sm:flex-row gap-6 relative z-10"
+                >
+                <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
+                    <Button variant="primary">
+                        בוא נדבר <ArrowLeft className="w-5 h-5 mr-2" />
+                    </Button>
+                </a>
+                <Button variant="secondary">
+                    איך זה עובד?
+                </Button>
+                </motion.div>
+            </div>
+
+            {/* ROCKET ANIMATION (Left Side in RTL) */}
+            <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="hidden lg:flex relative w-full h-[600px] order-2 items-center justify-center"
+            >
+                <div className="relative flex flex-col items-center justify-end h-full w-full pb-20">
+                    
+                    {/* SVG Definitions */}
+                    <svg width="0" height="0">
+                        <defs>
+                        <linearGradient id="hullGradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#22d3ee" /> {/* Cyan */}
+                            <stop offset="50%" stopColor="#3b82f6" /> {/* Blue */}
+                            <stop offset="100%" stopColor="#818cf8" /> {/* Indigo */}
+                        </linearGradient>
+                        <linearGradient id="fireGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#fbbf24" /> {/* Amber */}
+                            <stop offset="50%" stopColor="#f97316" /> {/* Orange */}
+                            <stop offset="100%" stopColor="#ef4444" stopOpacity="0" /> {/* Red Transparent */}
+                        </linearGradient>
+                        </defs>
+                    </svg>
+
+                    {/* Rocket Body */}
+                    <motion.div
+                        animate={{ y: [-5, 5, -5] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        className="relative z-20 w-80 h-80"
+                    >
+                         <Rocket 
+                            className="w-full h-full drop-shadow-[0_0_50px_rgba(6,182,212,0.4)]"
+                            strokeWidth={1}
+                            stroke="rgba(255,255,255,0.5)"
+                            fill="url(#hullGradient)"
+                        />
+                        {/* Highlights/Reflections on Rocket */}
+                        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-8 h-20 bg-white/10 blur-xl rounded-full" />
+                    </motion.div>
+
+                    {/* Fire / Exhaust Animation */}
+                    <div className="absolute bottom-[8.5rem] z-10 flex justify-center">
+                         {/* Core Heat */}
+                         <motion.div 
+                            animate={{ scaleY: [1, 1.2, 0.9, 1.3, 1], opacity: [0.8, 1, 0.7, 1, 0.8] }}
+                            transition={{ duration: 0.2, repeat: Infinity, repeatType: "reverse" }}
+                            className="w-16 h-32 bg-gradient-to-b from-yellow-300 via-orange-500 to-transparent blur-md rounded-b-full origin-top"
+                         />
+                         {/* Outer Glow */}
+                         <motion.div 
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 0.5, repeat: Infinity }}
+                            className="absolute top-0 w-32 h-40 bg-orange-500/30 blur-2xl rounded-full origin-top"
+                         />
                     </div>
+
+                    {/* Launchpad / Docking Station */}
+                    <div className="absolute bottom-12 z-0 w-96 h-12">
+                        {/* Platform Base */}
+                        <div className="w-full h-full bg-slate-900 border-t border-cyan-500/30 rounded-[100%] blur-sm shadow-[0_-10px_30px_rgba(6,182,212,0.1)] scale-x-150" />
+                        {/* Mechanical Arms (Abstract) */}
+                        <div className="absolute -left-10 bottom-2 w-20 h-4 bg-slate-800 rotate-12 rounded-full" />
+                        <div className="absolute -right-10 bottom-2 w-20 h-4 bg-slate-800 -rotate-12 rounded-full" />
+                    </div>
+
+                    {/* Overlapping Text */}
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        className="relative z-30 -mt-16 text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-transparent tracking-tighter drop-shadow-xl"
+                    >
+                        ממריאים...
+                    </motion.h2>
+
                 </div>
             </motion.div>
-      </motion.div>
+
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div 
@@ -159,7 +206,7 @@ export const Hero: React.FC = () => {
         <ChevronDown size={32} />
       </motion.div>
 
-      {/* CSS Styles optimized for GPU */}
+      {/* CSS Styles */}
       <style>{`
         @keyframes scan {
             0% { transform: translateY(0vh); opacity: 0; }
@@ -175,12 +222,6 @@ export const Hero: React.FC = () => {
             0% { opacity: 0; transform: scale(0.5); }
             50% { opacity: 0.8; transform: scale(1.2); }
             100% { opacity: 0; transform: scale(0.5); }
-        }
-        @keyframes floatParticle {
-            0% { transform: translateY(0) translateX(0); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.8; }
-            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
         }
       `}</style>
     </div>
