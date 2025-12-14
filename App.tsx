@@ -9,10 +9,12 @@ import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
 import { AccessibilityMenu } from './components/AccessibilityMenu';
 import { ScrollProgress } from './components/ScrollProgress';
+import { MouseSpotlight } from './components/MouseSpotlight';
 
 function App() {
   return (
-    <div className="bg-[#010206] min-h-screen text-white selection:bg-cyan-500/30">
+    <div className="bg-[#010206] min-h-screen text-white selection:bg-cyan-500/30 overflow-hidden">
+      <MouseSpotlight />
       <Header />
       <ScrollProgress />
       <main>
