@@ -66,7 +66,11 @@ export const PortfolioCarousel: React.FC = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          style={{ backfaceVisibility: 'hidden', WebkitFontSmoothing: 'antialiased' }}
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitFontSmoothing: 'antialiased',
+            willChange: 'transform' // Explicit hint
+          }}
         >
           {/* Double list for seamless loop */}
           {[...projects, ...projects, ...projects].map((project, index) => {

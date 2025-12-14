@@ -44,9 +44,9 @@ export const Hero: React.FC = () => {
             />
         ))}
 
-        {/* Ambient Glows */}
-        <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-purple-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-1000 transform-gpu will-change-transform" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-cyan-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[4s] transform-gpu will-change-transform" />
+        {/* Ambient Glows - Optimized with will-change */}
+        <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-purple-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-1000 transform-gpu will-change-[opacity]" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-cyan-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[4s] transform-gpu will-change-[opacity]" />
 
         {/* Scanner Line */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent w-full animate-[scan_8s_ease-in-out_infinite] opacity-0 shadow-[0_0_15px_rgba(6,182,212,0.3)] will-change-transform transform-gpu" />
@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
                     >
                     אנחנו לא בונים אתרים –
                     <br />
-                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto]">
+                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">
                         אנחנו בונים מכונת לידים משומנת.
                     </span>
                     </motion.h1>
@@ -119,7 +119,7 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="hidden lg:flex relative w-full h-[700px] order-2 items-center justify-center"
+                className="hidden lg:flex relative w-full h-[700px] order-2 items-center justify-center will-change-transform"
             >
                 <div className="relative flex flex-col items-center justify-end h-full w-full">
                     
@@ -212,19 +212,19 @@ export const Hero: React.FC = () => {
                              <motion.div 
                                 animate={{ height: [60, 80, 50, 90, 60], opacity: [0.9, 1, 0.8] }}
                                 transition={{ duration: 0.15, repeat: Infinity }}
-                                className="w-12 bg-white blur-[4px] rounded-full"
+                                className="w-12 bg-white blur-[4px] rounded-full will-change-[height,opacity]"
                              />
                              {/* Middle Orange */}
                              <motion.div 
                                 animate={{ height: [150, 180, 140], opacity: [0.7, 0.9, 0.7] }}
                                 transition={{ duration: 0.2, repeat: Infinity }}
-                                className="absolute top-2 w-16 bg-gradient-to-b from-yellow-300 via-orange-500 to-transparent blur-[8px] rounded-full"
+                                className="absolute top-2 w-16 bg-gradient-to-b from-yellow-300 via-orange-500 to-transparent blur-[8px] rounded-full will-change-[height,opacity]"
                              />
                              {/* Outer Glow */}
                              <motion.div 
                                 animate={{ height: [200, 240, 190], opacity: [0.3, 0.5, 0.3] }}
                                 transition={{ duration: 0.3, repeat: Infinity }}
-                                className="absolute top-4 w-24 bg-gradient-to-b from-orange-600/50 to-transparent blur-[20px] rounded-full"
+                                className="absolute top-4 w-24 bg-gradient-to-b from-orange-600/50 to-transparent blur-[20px] rounded-full will-change-[height,opacity]"
                              />
                         </div>
                     </motion.div>
@@ -266,7 +266,7 @@ export const Hero: React.FC = () => {
         style={{ opacity }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyan-500/50"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyan-500/50 will-change-transform"
       >
         <ChevronDown size={32} />
       </motion.div>
