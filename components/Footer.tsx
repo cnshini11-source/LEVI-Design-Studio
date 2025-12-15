@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
                   <div className="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Rocket className="text-cyan-400 w-6 h-6 relative z-10 transform group-hover:-rotate-45 transition-transform duration-500" />
               </div>
-              <span className="text-2xl font-black tracking-wider text-white group-hover:text-cyan-100 transition-colors">SHINI</span>
+              <span className="text-2xl font-black tracking-wider text-white group-hover:text-cyan-100 transition-colors">LEVI</span>
             </div>
             
             {/* Social Icons */}
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
           </div>
           
           <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} SHINI. כל הזכויות שמורות.</p>
+            <p>© {new Date().getFullYear()} LEVI. כל הזכויות שמורות.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <button onClick={() => setModalType('privacy')} className="hover:text-cyan-400 transition-colors">מדיניות פרטיות</button>
               <button onClick={() => setModalType('terms')} className="hover:text-cyan-400 transition-colors">תנאי שימוש</button>

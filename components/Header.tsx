@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
           {/* Text */}
           <div className="relative">
              <span className="text-4xl md:text-5xl font-black tracking-wider text-white group-hover:text-cyan-200 transition-colors duration-300">
-                SHINI
+                LEVI
              </span>
           </div>
         </div>

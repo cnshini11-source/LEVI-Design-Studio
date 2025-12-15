@@ -31,7 +31,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
       text: (
         <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
           <p><strong>1. הסכמה</strong><br/>הגלישה באתר מהווה הסכמה לתנאים אלו.</p>
-          <p><strong>2. קניין רוחני</strong><br/>כל התכנים באתר (עיצוב, טקסט, קוד) הם קניינה הבלעדי של SHINI ואין להעתיקם ללא אישור.</p>
+          <p><strong>2. קניין רוחני</strong><br/>כל התכנים באתר (עיצוב, טקסט, קוד) הם קניינה הבלעדי של LEVI ואין להעתיקם ללא אישור.</p>
           <p><strong>3. אחריות</strong><br/>השירות ניתן כמות שהוא (As Is). לא נשא באחריות לנזקים עקיפים הנובעים משימוש באתר.</p>
           <p><strong>4. שינויים</strong><br/>אנו שומרים לעצמנו את הזכות לשנות את תנאי השימוש בכל עת.</p>
         </div>

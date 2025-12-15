@@ -54,7 +54,7 @@ export const WhyChooseMe: React.FC = () => {
                 למה דווקא
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-l from-cyan-400 to-blue-500">
-                  SHINI?
+                  LEVI?
                 </span>
               </motion.h2>
               <p className="text-slate-400 text-lg">

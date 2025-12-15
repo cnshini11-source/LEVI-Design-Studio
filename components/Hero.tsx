@@ -192,7 +192,7 @@ export const Hero: React.FC = () => {
                                     fontFamily: "Arial, sans-serif" 
                                 }}
                             >
-                                SHINI
+                                LEVI
                             </text>
 
                             {/* Engine Nozzle */}
