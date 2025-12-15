@@ -23,12 +23,12 @@ export const TechSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="tech" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="tech" className="py-16 bg-slate-950 relative overflow-hidden">
         {/* Lightweight Background Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(6,182,212,0.05),transparent_50%)] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 
                 {/* Left Side: Copy */}
                 <motion.div 
@@ -55,17 +55,18 @@ export const TechSection: React.FC = () => {
                    
                    <div className="space-y-4">
                        <p className="text-lg text-slate-400 leading-relaxed font-light">
-                           זו התחושה הכי מתסכלת שיש לבעל עסק: השקעת בקמפיין, המודעה הייתה מושלמת, הגולש הקליק – ואז... נעלם. הוא יצא בלי להשאיר עקבות. הכסף שלך נשרף על "תיירים" באתר במקום על לקוחות משלמים.
+                           העולם השתנה. <strong className="text-white font-medium">היום, בלי נוכחות דיגיטלית חזקה, לא משנה כמה אתה תותח בתחומך – אתה פשוט לא קיים.</strong>
+                           <br className="block mb-2" />
+                           הלקוחות שלך נמצאים במסך, ואם אתה לא שם לתפוס אותם מיד – הם הולכים למתחרה שלך. זה לא מספיק רק "שיהיה אתר יפה", חייבים מכונה שיודעת להפוך גולשים לכסף.
                            <br className="hidden md:block" /><br className="hidden md:block" />
-                           <strong className="text-white font-medium">אני משנה את החוקים.</strong><br/>
-                           במקום עוד דף שנראה טוב אני בונה לך סוכן מכירות דיגיטלי שעובד בשבילך 24/7. המערכת שאני מטמיע מזהה היסוס בזמן אמת ומגישה לגולש את הטריגר הפסיכולוגי המדויק שיגרום לו לעצור, לקרוא – ולהשאיר פרטים <strong className="text-cyan-400">כאן ועכשיו</strong>.
+                           אני בונה לך סוכן מכירות דיגיטלי שעובד בשבילך 24/7. המערכת מזהה בדיוק מתי הלקוח מהסס ומגישה לו את המסר המדויק שיגרום לו להשאיר פרטים <strong className="text-cyan-400">עכשיו</strong>.
                        </p>
                    </div>
                 </motion.div>
 
                 {/* Right Side: The Visual AI Engine (CSS/SVG only - High Performance) */}
                 <motion.div 
-                   className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center pt-12" // Added pt-12 for the label space
+                   className="relative w-full aspect-square max-w-[380px] mx-auto flex items-center justify-center pt-6" // Increased size slightly
                    initial={{ opacity: 0, scale: 0.9 }}
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
