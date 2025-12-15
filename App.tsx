@@ -62,7 +62,8 @@ function App() {
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
-             <div id="process" className="lazy-section">
+             {/* scroll-mt-32 added to handle header offset when scrolling to #process */}
+             <div id="process" className="lazy-section scroll-mt-32">
                 <ProcessSection />
              </div>
         </Suspense>

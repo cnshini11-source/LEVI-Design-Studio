@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './Button';
-import { ChevronDown, ArrowLeft, Sparkles } from 'lucide-react';
+import { ChevronDown, Rocket, Sparkles } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -47,8 +47,6 @@ export const Hero: React.FC = () => {
         {/* Ambient Glows - Optimized */}
         <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-purple-900/10 rounded-full blur-[80px] mix-blend-screen transform-gpu" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-cyan-900/10 rounded-full blur-[80px] mix-blend-screen transform-gpu" />
-        
-        {/* Removed Scanner Line for Performance */}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 lg:pt-0">
@@ -77,10 +75,10 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="relative z-10 text-4xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight"
                     >
-                    אנחנו לא בונים אתרים –
+                    אני לא בונה אתר
                     <br />
                     <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">
-                        אנחנו בונים מכונת לידים משומנת.
+                        אני בונה מכונת לידים משומנת.
                     </span>
                     </motion.h1>
                 </div>
@@ -103,13 +101,15 @@ export const Hero: React.FC = () => {
                 className="flex flex-col sm:flex-row gap-6 relative z-10"
                 >
                 <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
-                    <Button variant="primary">
-                        בוא נדבר <ArrowLeft className="w-5 h-5 mr-2" />
-                    </Button>
-                </a>
-                <a href="#process">
-                    <Button variant="secondary">
-                        איך זה עובד?
+                    <Button variant="primary" className="text-xl md:text-2xl px-12 py-6 rounded-full h-auto shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_50px_rgba(6,182,212,0.6)] border border-cyan-400/20 group overflow-hidden">
+                        <span className="flex items-center gap-4 relative z-10">
+                            בוא נדבר
+                            <span className="relative w-8 h-8 flex items-center justify-center">
+                                {/* The Rocket that launches */}
+                                <Rocket className="w-8 h-8 absolute inset-0 transform -rotate-45 group-hover:-translate-x-48 group-hover:-translate-y-48 transition-transform duration-700 ease-in-out text-white fill-white/20" />
+                                {/* The Fire/Trail left behind (optional, implied by speed) */}
+                            </span>
+                        </span>
                     </Button>
                 </a>
                 </motion.div>
@@ -155,7 +155,6 @@ export const Hero: React.FC = () => {
                                     <stop offset="55%" stopColor="#a5f3fc" />
                                     <stop offset="100%" stopColor="#ffffff" />
                                 </linearGradient>
-                                {/* Optimized: Removed Filter to improve performance */}
                             </defs>
                             
                             {/* Left Fin */}

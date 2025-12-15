@@ -4,7 +4,7 @@ import { Search, PenTool, Database, Rocket, MessageSquare, BarChart, Smartphone,
 
 export const ProcessSection: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="lead-machine" className="py-24 bg-slate-950 relative overflow-hidden scroll-mt-32">
       {/* Background Elements - Optimized */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
