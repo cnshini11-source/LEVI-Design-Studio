@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             
             {/* Social Icons */}
             <div className="flex gap-6">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 hover:scale-110 transition-all duration-300" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/levi_sh_11?igsh=MW50dWpucjFjcm1raQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 hover:scale-110 transition-all duration-300" aria-label="Instagram"><Instagram size={20} /></a>
               <a href="#" className="text-slate-400 hover:text-blue-500 hover:scale-110 transition-all duration-300" aria-label="Facebook"><Facebook size={20} /></a>
               <a href="#" className="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300" aria-label="Github"><Github size={20} /></a>
             </div>

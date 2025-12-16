@@ -14,13 +14,14 @@ const projects = [
     image: "https://i.imgur.com/iNQ0K2j.png"
   },
   {
-    title: "Neon Estate",
+    title: "DEEP SLEEP",
     category: "Real Estate AI",
     description: "פלטפורמת נדלן חכמה המבוססת על בינה מלאכותית לאיתור נכסים.",
     gradient: "from-purple-600/20 to-pink-500/20",
     border: "group-hover:border-purple-500/50",
     text_glow: "group-hover:text-purple-400",
-    link: "https://ai.studio/apps/drive/1Cn3hlhWMbrSUWayswo47JR921X2PgyIX"
+    link: "https://cnshini11-source.github.io/shini/",
+    image: "https://i.imgur.com/ozMneOp.png"
   },
   {
     title: "Quantum Fitness",
