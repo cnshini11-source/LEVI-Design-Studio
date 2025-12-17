@@ -50,84 +50,24 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 lg:pt-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-20 items-center">
             
-            {/* TEXT CONTENT (Right Side in RTL) */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-right order-1">
-                
-                {/* Badge */}
-                <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-slate-900/50 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] relative group overflow-hidden"
-                >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-                <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
-                </motion.div>
-
-                {/* Main Title */}
-                <div className="relative">
-                    <motion.h1 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="relative z-10 text-4xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight"
-                    >
-                    אני לא בונה אתר
-                    <br />
-                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">
-                        אני בונה מכונת לידים משומנת.
-                    </span>
-                    </motion.h1>
-                </div>
-
-                {/* Subtitle */}
-                <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-lg md:text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed relative z-10 font-light"
-                >
-                דפי נחיתה ואתרי תדמית חכמים עם אנימציות מתקדמות, <span className="font-bold text-white">AI מובנה</span> ומשפך שיווקי מדויק שמייצר לידים ולקוחות באופן אוטומטי – 24/7.
-                </motion.p>
-
-                {/* CTAs */}
-                <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="flex flex-col sm:flex-row gap-6 relative z-10"
-                >
-                <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
-                    <Button variant="primary" className="text-xl md:text-2xl px-12 py-6 rounded-full h-auto shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_50px_rgba(6,182,212,0.6)] border border-cyan-400/20 group overflow-hidden">
-                        <span className="flex items-center gap-4 relative z-10">
-                            בוא נדבר
-                            <span className="relative w-8 h-8 flex items-center justify-center">
-                                {/* The Rocket stays inside but wiggles/rotates on hover */}
-                                <Rocket className="w-8 h-8 absolute inset-0 transform -rotate-45 group-hover:rotate-0 group-hover:scale-110 transition-transform duration-500 ease-in-out text-white fill-white/20" />
-                            </span>
-                        </span>
-                    </Button>
-                </a>
-                </motion.div>
-            </div>
-
-            {/* ROCKET ANIMATION (Left Side in RTL) */}
+            {/* ROCKET ANIMATION (Left Side in RTL, Top on Mobile) */}
+            {/* Moved UP in code structure but maintained visual order via flex/grid if needed, 
+                though here we rely on standard DOM order for mobile (Rocket first) */}
             <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="hidden lg:flex relative w-full h-[700px] order-2 items-center justify-center will-change-transform"
+                className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center will-change-transform mt-0 lg:mt-0"
             >
-                <div className="relative flex flex-col items-center justify-end h-full w-full">
+                <div className="relative flex flex-col items-center justify-center lg:justify-end h-full w-full">
                     
-                    {/* Rocket Wrapper - Floating High - Optimized */}
+                    {/* Rocket Wrapper - Subtler Background Element on Mobile */}
                     <motion.div
-                        animate={{ y: [-15, 15, -15] }}
+                        animate={{ y: [-2, 2, -2] }} // Very subtle float on mobile
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative z-20 w-48 mb-32 will-change-transform transform-gpu" // Increased bottom margin for distance
+                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 will-change-transform transform-gpu opacity-40 lg:opacity-100 grayscale-[0.3] lg:grayscale-0" 
                     >
                         {/* Custom Realistic Rocket SVG */}
                         <svg viewBox="0 0 200 400" className="w-full h-full drop-shadow-[0_0_20px_rgba(6,182,212,0.2)]">
@@ -197,57 +137,111 @@ export const Hero: React.FC = () => {
                             <path d="M70 350 L60 370 L140 370 L130 350 Z" fill="#1e293b" />
                         </svg>
 
-                         {/* ENGINE FIRE - Long Trail */}
+                         {/* ENGINE FIRE - Scaled for Mobile */}
                          <div className="absolute top-[98%] left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
                              {/* Core White Hot */}
                              <motion.div 
-                                animate={{ height: [60, 80, 50, 90, 60], opacity: [0.9, 1, 0.8] }}
+                                animate={{ height: [30, 50, 20, 60, 30], opacity: [0.9, 1, 0.8] }}
                                 transition={{ duration: 0.15, repeat: Infinity }}
-                                className="w-12 bg-white blur-[4px] rounded-full will-change-[height,opacity]"
+                                className="w-4 lg:w-12 bg-white blur-[2px] lg:blur-[4px] rounded-full will-change-[height,opacity]"
                              />
                              {/* Middle Orange */}
                              <motion.div 
-                                animate={{ height: [150, 180, 140], opacity: [0.7, 0.9, 0.7] }}
+                                animate={{ height: [60, 90, 50], opacity: [0.7, 0.9, 0.7] }}
                                 transition={{ duration: 0.2, repeat: Infinity }}
-                                className="absolute top-2 w-16 bg-gradient-to-b from-yellow-300 via-orange-500 to-transparent blur-[8px] rounded-full will-change-[height,opacity]"
-                             />
-                             {/* Outer Glow */}
-                             <motion.div 
-                                animate={{ height: [200, 240, 190], opacity: [0.3, 0.5, 0.3] }}
-                                transition={{ duration: 0.3, repeat: Infinity }}
-                                className="absolute top-4 w-24 bg-gradient-to-b from-orange-600/50 to-transparent blur-[20px] rounded-full will-change-[height,opacity]"
+                                className="absolute top-1 lg:top-2 w-5 lg:w-16 bg-gradient-to-b from-yellow-300 via-orange-500 to-transparent blur-[4px] lg:blur-[8px] rounded-full will-change-[height,opacity]"
                              />
                         </div>
                     </motion.div>
 
-                    {/* Launchpad / Docking Station - Pushed to Bottom */}
-                    <div className="absolute bottom-[-40px] z-0 w-[500px] h-32 flex justify-center perspective-1000">
+                    {/* Launchpad / Docking Station - HIDDEN ON MOBILE */}
+                    <div className="hidden lg:flex absolute bottom-[-40px] z-0 w-[500px] h-32 justify-center perspective-1000 scale-100 origin-bottom">
                         {/* Main Platform Ring */}
                         <div className="relative w-80 h-20">
                              <div className="absolute inset-0 bg-slate-900 border-2 border-cyan-900/50 rounded-[100%] shadow-[0_0_50px_rgba(6,182,212,0.1)] overflow-hidden">
                                   {/* Grid on Platform */}
                                   <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
                              </div>
-                             {/* Inner Ring */}
-                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-12 bg-slate-950 border border-cyan-500/30 rounded-[100%] shadow-[inset_0_0_20px_rgba(6,182,212,0.2)]" />
                         </div>
                         
                         {/* Mist/Steam on the ground */}
                         <div className="absolute bottom-10 w-full h-20 bg-gradient-to-t from-cyan-900/20 to-transparent blur-xl" />
                     </div>
 
-                    {/* Overlapping Text */}
+                    {/* Overlapping Text - HIDDEN ON MOBILE to save space */}
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="relative z-30 bottom-16 text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-transparent tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
+                        className="relative z-30 bottom-10 lg:bottom-16 text-4xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-transparent tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] hidden lg:block"
                     >
                         ממריאים...
                     </motion.h2>
 
                 </div>
             </motion.div>
+
+            {/* TEXT CONTENT (Right Side in RTL, Bottom on Mobile - Pulled UP) */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-right order-last lg:order-first pb-10 lg:pb-0 relative z-20 -mt-36 lg:mt-0">
+                
+                {/* Badge */}
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-4 lg:mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-slate-900/80 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] relative group overflow-hidden"
+                >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+                <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
+                </motion.div>
+
+                {/* Main Title */}
+                <div className="relative">
+                    <motion.h1 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="relative z-10 text-[2.75rem] sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight drop-shadow-2xl"
+                    >
+                    אני לא בונה אתר
+                    <br />
+                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">
+                        אני בונה מכונת לידים משומנת.
+                    </span>
+                    </motion.h1>
+                </div>
+
+                {/* Subtitle */}
+                <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-lg md:text-xl text-slate-300 max-w-3xl mb-8 lg:mb-12 leading-relaxed relative z-10 font-light px-4 lg:px-0 bg-slate-950/30 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none rounded-xl"
+                >
+                דפי נחיתה ואתרי תדמית חכמים עם אנימציות מתקדמות, <span className="font-bold text-white">AI מובנה</span> ומשפך שיווקי מדויק שמייצר לידים ולקוחות באופן אוטומטי – 24/7.
+                </motion.p>
+
+                {/* CTAs */}
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="flex flex-col sm:flex-row gap-6 relative z-10"
+                >
+                <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
+                    <Button variant="primary" className="text-xl md:text-2xl px-12 py-6 rounded-full h-auto shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_50px_rgba(6,182,212,0.6)] border border-cyan-400/20 group overflow-hidden">
+                        <span className="flex items-center gap-4 relative z-10">
+                            בוא נדבר
+                            <span className="relative w-8 h-8 flex items-center justify-center">
+                                {/* The Rocket stays inside but wiggles/rotates on hover */}
+                                <Rocket className="w-8 h-8 absolute inset-0 transform -rotate-45 group-hover:rotate-0 group-hover:scale-110 transition-transform duration-500 ease-in-out text-white fill-white/20" />
+                            </span>
+                        </span>
+                    </Button>
+                </a>
+                </motion.div>
+            </div>
 
         </div>
       </div>
@@ -257,7 +251,7 @@ export const Hero: React.FC = () => {
         style={{ opacity }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyan-500/50 will-change-transform"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyan-500/50 will-change-transform hidden lg:block"
       >
         <ChevronDown size={32} />
       </motion.div>

@@ -46,7 +46,7 @@ export const Pricing: React.FC = () => {
              {/* Simple Shine Animation */}
              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out skew-x-12 will-change-transform" />
              
-             <span className="relative z-10">בוא נדבר על העסק שלכם</span>
+             <span className="relative z-10">בוא נדבר על העסק שלך</span>
              <ArrowLeft className="w-6 h-6 relative z-10 group-hover:-translate-x-1 transition-transform" strokeWidth={3} />
            </a>
 

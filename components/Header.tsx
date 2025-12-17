@@ -27,24 +27,24 @@ export const Header: React.FC = () => {
             : "bg-transparent border-transparent backdrop-blur-none"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-center relative z-10 w-full">
         
         {/* Logo */}
         <div 
           onClick={scrollToTop}
-          className="flex items-center gap-4 cursor-pointer group"
+          className="flex items-center gap-4 md:gap-5 cursor-pointer group select-none"
         >
           {/* Icon Container */}
           <div className="relative flex items-center justify-center">
             {/* Simple static glow on hover instead of continuous pulse */}
             <div className="absolute inset-0 bg-cyan-400/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
-            <Rocket className="text-cyan-400 w-10 h-10 relative z-10 transform group-hover:-rotate-45 transition-transform duration-300" />
+            <Rocket className="text-cyan-400 w-10 h-10 md:w-12 md:h-12 relative z-10 transform group-hover:-rotate-45 transition-transform duration-300" />
           </div>
 
           {/* Text */}
           <div className="relative">
-             <span className="text-4xl md:text-5xl font-black tracking-wider text-white group-hover:text-cyan-200 transition-colors duration-300">
+             <span className="text-4xl md:text-6xl font-black tracking-wider text-white group-hover:text-cyan-200 transition-colors duration-300">
                 LEVI
              </span>
           </div>

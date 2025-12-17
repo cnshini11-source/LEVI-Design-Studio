@@ -32,8 +32,8 @@ const SectionLoader = () => (
 
 function App() {
   return (
-    <div className="bg-[#010206] min-h-screen text-white selection:bg-cyan-500/30 overflow-hidden">
-      {/* Global Interactive Elements */}
+    <div className="bg-[#010206] min-h-screen text-white selection:bg-cyan-500/30 overflow-hidden relative">
+      {/* Global Visual Enhancements */}
       <ScrollProgress />
       <Header />
       
