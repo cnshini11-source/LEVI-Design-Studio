@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
@@ -12,7 +11,9 @@ import {
   ArrowDown,
   ShieldCheck,
   Server,
-  CloudLightning
+  CloudLightning,
+  BellRing,
+  MessageCircle
 } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -63,8 +64,6 @@ const ProcessStep: React.FC<{ step: typeof steps[0], idx: number }> = ({ step, i
     offset: ["start end", "end start"]
   });
 
-  // Entry: 0.0 -> 0.2 | Active: 0.2 -> 0.7 | Fly Up: 0.7 -> 1.0
-  // Reduced initial 'y' offset for entry (from 150 to 80) and kept fly-up distance
   const y = useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [80, 0, 0, -350]);
   const opacity = useTransform(scrollYProgress, [0, 0.15, 0.75, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [0.9, 1, 1, 0.7]);
@@ -77,7 +76,7 @@ const ProcessStep: React.FC<{ step: typeof steps[0], idx: number }> = ({ step, i
     <motion.div
       ref={containerRef}
       style={{ y, opacity, scale, rotateX, filter }}
-      className="relative group will-change-transform py-2" // Reduced vertical padding
+      className="relative group will-change-transform py-2"
     >
       <div className="absolute left-1/2 -top-16 -translate-x-1/2 flex flex-col items-center z-20">
         <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center relative shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
@@ -163,7 +162,7 @@ export const ProcessSection: React.FC = () => {
             {/* The Central Data Beam */}
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-cyan-500/30 to-transparent -translate-x-1/2" />
 
-            <div className="space-y-4 relative"> {/* Significantly reduced spacing from space-y-24 */}
+            <div className="space-y-4 relative">
                 {steps.map((step, idx) => (
                     <ProcessStep key={step.id} step={step} idx={idx} />
                 ))}
@@ -177,7 +176,6 @@ export const ProcessSection: React.FC = () => {
             viewport={{ once: true }}
             className="mt-8 pb-12 text-center relative flex flex-col items-center"
         >
-            {/* Decorative Line Connector - Shorter */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gradient-to-b from-cyan-500/30 to-transparent" />
             
             <div className="pt-12 w-full max-w-lg">
@@ -202,34 +200,43 @@ export const ProcessSection: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 gap-3 mb-8 text-right">
-                            <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex items-start gap-3 transition-all hover:bg-white/10">
-                                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0">
-                                    <Server className="text-cyan-400 w-4 h-4" />
+                        <div className="grid grid-cols-1 gap-4 mb-8 text-right">
+                            {/* Combined Storage & Domain Item */}
+                            <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-start gap-4 transition-all hover:bg-white/10 group/card">
+                                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-500/20 group-hover/card:scale-110 transition-transform">
+                                    <Globe className="text-cyan-400 w-5 h-5" />
                                 </div>
                                 <div>
-                                    <span className="text-white font-bold text-xs block mb-0.5">אחסון</span>
-                                    <p className="text-slate-400 text-[10px] leading-relaxed">שרתים חזקים ומהירים שדואגים שהאתר שלך יעלה בטיל ולא יתקע לעולם.</p>
+                                    <span className="text-white font-black text-sm block mb-1">תשתית פרימיום (אחסון ודומיין)</span>
+                                    <p className="text-slate-400 text-xs leading-relaxed">
+                                        אחסון בענן בשרתים המהירים ביותר בעולם יחד עם דומיין רשמי בבעלותך. הכל מנוהל טכנית כדי שהאתר שלך יטוס 24/7 ללא תקלות.
+                                    </p>
                                 </div>
                             </div>
 
-                            <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex items-start gap-3 transition-all hover:bg-white/10">
-                                <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
-                                    <Globe className="text-blue-400 w-4 h-4" />
+                            {/* Expanded Lead Integration Item */}
+                            <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-start gap-4 transition-all hover:bg-white/10 group/card">
+                                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/20 group-hover/card:scale-110 transition-transform">
+                                    <Zap className="text-blue-400 w-5 h-5 shadow-[0_0_10px_rgba(59,130,246,0.3)]" />
                                 </div>
                                 <div>
-                                    <span className="text-white font-bold text-xs block mb-0.5">דומיין</span>
-                                    <p className="text-slate-400 text-[10px] leading-relaxed">הכתובת הרשמית של העסק שלך באינטרנט. רשום על שמך ובבעלותך המלאה.</p>
+                                    <span className="text-white font-black text-sm block mb-1">חיבור לידים חכם ומידי</span>
+                                    <p className="text-slate-400 text-xs leading-relaxed">
+                                        כל לקוח שמשאיר פרטים מוקפץ אליך ישירות לווצאפ תוך שניות. המערכת מחברת אותך ללקוח כשהוא עוד באתר, כדי שתוכל לסגור עסקאות בזמן אמת ולמקסם כל פנייה.
+                                    </p>
                                 </div>
                             </div>
 
-                            <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex items-start gap-3 transition-all hover:bg-white/10">
-                                <div className="w-8 h-8 rounded-lg bg-[#25D366]/10 flex items-center justify-center shrink-0">
-                                    <WhatsAppIcon className="text-[#25D366] w-5 h-5" />
+                            {/* Personal WhatsApp Support Item */}
+                            <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-start gap-4 transition-all hover:bg-white/10 group/card">
+                                <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 flex items-center justify-center shrink-0 border border-[#25D366]/20 group-hover/card:scale-110 transition-transform">
+                                    <WhatsAppIcon className="text-[#25D366] w-6 h-6 drop-shadow-[0_0_8px_rgba(37,211,102,0.3)]" />
                                 </div>
                                 <div>
-                                    <span className="text-white font-bold text-xs block mb-0.5">תמיכה אישית בווצאפ</span>
-                                    <p className="text-slate-400 text-[10px] leading-relaxed">הווצאפ האישי שלי פתוח לכל שאלה או עזרה שצריך. בלי נציגים ובלי בוטים.</p>
+                                    <span className="text-white font-black text-sm block mb-1">תמיכה וליווי אישי בווצאפ</span>
+                                    <p className="text-slate-400 text-xs leading-relaxed">
+                                        אני כאן בשבילך לכל שאלה, שינוי או ייעוץ. בלי בוטים ובלי נציגים - קו ישיר לווצאפ האישי שלי כדי להבטיח שהנכס הדיגיטלי שלך תמיד בשיאו ושהעסק שלך ממשיך לצמוח.
+                                    </p>
                                 </div>
                             </div>
                         </div>
