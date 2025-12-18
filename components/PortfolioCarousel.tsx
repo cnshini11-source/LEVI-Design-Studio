@@ -64,7 +64,7 @@ export const PortfolioCarousel: React.FC = memo(() => {
 
   return (
     <section 
-      className="py-24 relative overflow-hidden bg-[#010101]" // Almost pure black
+      className="pt-24 pb-6 relative overflow-hidden bg-[#010101]" // Reduced bottom padding from py-24 to pb-6
     >
       {/* BACKGROUND LAYERS - Minimalist & Dark */}
       <div className="absolute inset-0 z-0 pointer-events-none">

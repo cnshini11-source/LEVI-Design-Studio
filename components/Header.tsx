@@ -40,11 +40,10 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="relative overflow-hidden py-1">
-             <span className="text-4xl md:text-6xl font-black tracking-tighter text-white relative block">
+             <span className="text-4xl md:text-6xl font-black tracking-widest text-white relative block">
                 LEVI
              </span>
-             {/* Static underline */}
-             <div className="absolute bottom-0 right-0 h-0.5 w-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" />
+             {/* Static underline removed */}
           </div>
         </div>
 

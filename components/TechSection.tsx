@@ -1,212 +1,179 @@
 
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
-import { ScanEye, AlertTriangle, TrendingUp, Activity, Lock, MousePointerClick } from 'lucide-react';
+import { Scan, AlertTriangle, Eye, Fingerprint, MousePointer2 } from 'lucide-react';
 
 export const TechSection: React.FC = memo(() => {
-  
-  // HUD Data Nodes - Representing the analysis phases
-  const dataNodes = [
-    { 
-      id: 1,
-      label: "זיהוי נטישה",
-      sub: "Friction Detected",
-      icon: AlertTriangle, 
-      color: "text-rose-400", 
-      bg: "bg-rose-500/10",
-      border: "border-rose-500/30",
-      shadow: "shadow-rose-500/20",
-      x: "-260px", 
-      y: "-60px",
-      delay: 0
-    },
-    { 
-      id: 2,
-      label: "ניתוח פסיכולוגי",
-      sub: "Psychometric Analysis",
-      icon: ScanEye, 
-      color: "text-purple-400", 
-      bg: "bg-purple-500/10",
-      border: "border-purple-500/30",
-      shadow: "shadow-purple-500/20",
-      x: "260px", 
-      y: "-20px",
-      delay: 1.5
-    },
-    { 
-      id: 3,
-      label: "אופטימיזציה",
-      sub: "Conversion Boost",
-      icon: TrendingUp, 
-      color: "text-emerald-400", 
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/30",
-      shadow: "shadow-emerald-500/20",
-      x: "0px", 
-      y: "220px",
-      delay: 3
-    },
-  ];
-
   return (
-    <section id="tech" className="relative flex items-center justify-center overflow-hidden py-32 bg-[#020617]">
-      
-      {/* 1. ANALYTICAL BACKGROUND DEPTH */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#020617] to-[#020617]" />
+    <section className="relative py-20 md:py-32 overflow-hidden bg-[#020617] flex flex-col items-center justify-center">
         
-        {/* Precise Grid (The "Map") */}
-        <div className="absolute inset-0 opacity-[0.08]" 
-             style={{ 
-                 backgroundImage: `linear-gradient(rgba(6,182,212,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.1) 1px, transparent 1px)`,
-                 backgroundSize: '60px 60px'
-             }} 
-        />
-        
-        {/* Floating Data Bits */}
-        <motion.div 
-            animate={{ opacity: [0.1, 0.3, 0.1] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute top-1/3 left-1/4 text-[10px] font-mono text-cyan-900/40 select-none"
-        >
-            010110... ANALYZING...
-        </motion.div>
-      </div>
-
-      <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center text-center">
-        
-        {/* --- HEADLINE --- */}
-        <div className="mb-24 relative z-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-7xl font-black text-white leading-[1.1] tracking-tighter drop-shadow-2xl"
-          >
-            הגולשים נכנסים? <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 drop-shadow-[0_0_25px_rgba(34,211,238,0.4)]">
-              הגיע הזמן שיהיו לקוחות.
-            </span>
-          </motion.h2>
+        {/* --- 1. BACKGROUND LAYERS --- */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(15,23,42,0.6),_#000000_90%)]" />
+            {/* Cyber Grid */}
+            <div 
+                className="absolute inset-0 opacity-[0.05]" 
+                style={{ 
+                    backgroundImage: `linear-gradient(rgba(6,182,212,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.3) 1px, transparent 1px)`,
+                    backgroundSize: '60px 60px'
+                }} 
+            />
         </div>
 
-        {/* --- THE ANALYTICAL ENGINE (CORE) --- */}
-        <div className="relative w-[600px] h-[500px] flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             
-            {/* 1. RADAR SCANNERS (The Rings) */}
-            
-            {/* Outer Static Scale */}
-            <div className="absolute w-[450px] h-[450px] rounded-full border border-slate-800/60" />
-            <div className="absolute w-[350px] h-[350px] rounded-full border border-dashed border-slate-700/40 opacity-50" />
-            
-            {/* Rotating Scanner Line (The "Eye") */}
-            <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full z-10 pointer-events-none"
-            >
-                <div className="absolute top-1/2 left-1/2 w-[300px] h-[2px] bg-gradient-to-r from-transparent to-cyan-500/20 origin-left rotate-[-45deg]" />
-            </motion.div>
-
-            {/* 2. THE PROCESSING CORE (Central Unit) */}
-            <motion.div 
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                className="relative z-20 w-[300px] h-[300px] rounded-full flex items-center justify-center"
-            >
-                {/* Glass HUD Background */}
-                <div className="absolute inset-0 bg-[#020617]/80 backdrop-blur-xl border border-cyan-500/20 rounded-full shadow-[0_0_60px_rgba(6,182,212,0.1)]" />
+            {/* --- LEFT SIDE: THE TEXT (PAIN & SOLUTION) --- */}
+            <div className="text-right order-2 lg:order-1">
                 
-                {/* Active Pulse (Thinking) */}
+                {/* Warning Badge */}
                 <motion.div 
-                    animate={{ boxShadow: ["0 0 0px rgba(6,182,212,0)", "0 0 20px rgba(6,182,212,0.3)", "0 0 0px rgba(6,182,212,0)"] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute inset-0 rounded-full border border-cyan-500/30"
-                />
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-widest uppercase mb-6"
+                >
+                    <AlertTriangle size={14} className="animate-pulse" />
+                    <span>System Alert: Traffic Leaking</span>
+                </motion.div>
 
-                {/* --- ANALYTICAL TEXT CONTENT --- */}
-                <div className="relative z-30 flex flex-col items-center justify-center text-center px-4">
-                    
-                    {/* Status Indicator */}
-                    <div className="flex items-center gap-2 mb-4">
-                         <Activity size={14} className="text-cyan-400 animate-pulse" />
-                         <span className="text-[10px] font-mono text-cyan-500 tracking-widest uppercase">System: Optimizing</span>
-                    </div>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight"
+                >
+                    הם נכנסים, גוללים...
+                    <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-orange-400">
+                        ויוצאים.
+                    </span>
+                </motion.h2>
 
-                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
-                        מנוע אנליטי
-                    </h3>
-                    
-                    <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent mb-3" />
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="space-y-6 text-lg md:text-xl text-slate-400 font-light leading-relaxed"
+                >
+                    <p>
+                        שילמת על ממומן, השקעת בתוכן, הבאת אותם עד הדלת – אבל הכסף נוזל מבין האצבעות. למה?
+                        כי משהו שם <strong className="text-white font-bold">לא עובד</strong>, ואתה אפילו לא יודע איפה.
+                    </p>
+                    <p className="border-r-2 border-cyan-500 pr-4">
+                        המערכת שלנו היא ה"עיניים" שלך בתוך האתר. היא מזהה בדיוק את הרגע שבו הלקוח מהסס, מתבלבל או משתעמם – ומתקנת את זה בזמן אמת.
+                    </p>
+                </motion.div>
 
-                    <div className="text-sm md:text-base text-slate-300 font-mono space-y-1">
-                        <p className="flex items-center justify-center gap-2">
-                            <span className="text-rose-400">></span> מזהה היסוס
-                        </p>
-                        <p className="flex items-center justify-center gap-2">
-                            <span className="text-purple-400">></span> בונה אמון
-                        </p>
-                        <p className="flex items-center justify-center gap-2">
-                            <span className="text-emerald-400">></span> <span className="font-bold text-white bg-emerald-500/20 px-1 rounded">סוגר עסקה</span>
-                        </p>
-                    </div>
+                {/* Feature List */}
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                        { icon: Eye, label: "זיהוי נקודות עיוורון" },
+                        { icon: Fingerprint, label: "ניתוח התנהגות גולש" },
+                        { icon: Scan, label: "סריקת כשלים 24/7" },
+                        { icon: MousePointer2, label: "הקלטת תנועות עכבר" }
+                    ].map((item, i) => (
+                        <motion.div 
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 + (i * 0.1) }}
+                            className="flex items-center gap-3 text-slate-300 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-cyan-500/30 transition-colors"
+                        >
+                            <item.icon size={18} className="text-cyan-400" />
+                            <span className="text-sm font-medium">{item.label}</span>
+                        </motion.div>
+                    ))}
                 </div>
-            </motion.div>
+            </div>
 
-
-            {/* 3. INTELLIGENT NODES (The Floating Insights) */}
-            {dataNodes.map((node) => (
-                <motion.div
-                    key={node.id}
+            {/* --- RIGHT SIDE: THE SCANNER VISUALIZATION --- */}
+            <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+                
+                <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: node.delay * 0.2, duration: 0.5 }}
-                    className={`absolute hidden md:flex items-center gap-3 px-4 py-3 rounded-xl border backdrop-blur-md z-30 ${node.bg} ${node.border} ${node.shadow}`}
-                    style={{ 
-                        transform: `translate(${node.x}, ${node.y})`,
-                    }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full max-w-md aspect-square"
                 >
-                    <div className={`p-2 rounded-lg bg-black/40 ${node.color}`}>
-                        <node.icon size={20} />
+                    {/* 1. Base Plate (The 'Website') - Now with Image */}
+                    <div className="absolute inset-0 bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 md:rotate-6">
+                        
+                        {/* The Provided Image */}
+                        <img 
+                            src="https://i.imgur.com/7AeCf78.jpg" 
+                            alt="Interface Analysis" 
+                            className="w-full h-full object-cover opacity-80"
+                        />
+                        
+                        {/* Overlay to ensure scanner visibility */}
+                        <div className="absolute inset-0 bg-slate-950/20" />
+
+                        {/* Drop-off Points (Red Dots) */}
+                        <div className="absolute top-[35%] left-[25%] w-3 h-3 bg-red-500 rounded-full shadow-[0_0_10px_red] animate-ping" />
+                        <div className="absolute bottom-[25%] right-[25%] w-3 h-3 bg-red-500 rounded-full shadow-[0_0_10px_red] animate-ping delay-700" />
+
                     </div>
-                    <div className="text-right">
-                        <div className="text-xs font-mono opacity-60 uppercase tracking-wider text-slate-400">{node.sub}</div>
-                        <div className="text-sm font-bold text-white">{node.label}</div>
+
+                    {/* 2. The AI Scanner Overlay */}
+                    <div className="absolute inset-[-20px] pointer-events-none">
+                        
+                        {/* Rotating Radar Ring */}
+                        <motion.div 
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full border border-cyan-500/30"
+                            style={{ background: 'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(6,182,212,0.2) 360deg)' }}
+                        />
+                        
+                        {/* Counter-Rotating Dashed Ring */}
+                        <motion.div 
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full border border-dashed border-cyan-500/20"
+                        />
+
+                        {/* Scanner Laser Line (Vertical Sweep) */}
+                        <motion.div 
+                             animate={{ top: ['0%', '100%', '0%'] }}
+                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                             className="absolute left-0 right-0 h-[2px] bg-cyan-400 shadow-[0_0_20px_cyan] opacity-70 z-20"
+                        >
+                            <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-cyan-500/20 to-transparent" />
+                        </motion.div>
+
+                        {/* Data Box Floating */}
+                        <motion.div 
+                            animate={{ y: [-5, 5, -5] }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            className="absolute -right-8 top-1/3 bg-black/80 backdrop-blur border border-cyan-500/50 p-3 rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+                        >
+                            <div className="flex items-center gap-2 mb-1">
+                                <Scan size={14} className="text-cyan-400" />
+                                <span className="text-[10px] text-cyan-400 font-mono tracking-wider">ANALYZING</span>
+                            </div>
+                            <div className="text-xs text-white font-mono">
+                                Friction detected: <span className="text-red-400">84%</span>
+                            </div>
+                            <div className="w-full h-1 bg-slate-700 mt-2 rounded-full overflow-hidden">
+                                <motion.div 
+                                    animate={{ width: ["0%", "84%"] }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                    className="h-full bg-red-500" 
+                                />
+                            </div>
+                        </motion.div>
                     </div>
-                    
-                    {/* Connection Line to Core */}
-                    <svg className="absolute inset-0 w-full h-full overflow-visible pointer-events-none -z-10 opacity-30">
-                        {/* Coordinates are simplified, in real implementation calculation would be dynamic based on center */}
-                        <line x1="50%" y1="50%" x2={parseInt(node.x) * -1.5} y2={parseInt(node.y) * -1.5} stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" className={node.color} />
-                    </svg>
+
                 </motion.div>
-            ))}
+
+                {/* Background Glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-cyan-500/5 blur-[80px] rounded-full z-[-1]" />
+            </div>
 
         </div>
-
-        {/* --- BOTTOM CTA --- */}
-        <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12"
-        >
-             <a 
-                href="https://wa.me/972538227778"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 px-8 py-3 bg-slate-900 border border-slate-700 text-slate-300 font-medium text-sm rounded-full overflow-hidden transition-all hover:border-cyan-500 hover:text-white hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]"
-            >
-                <span className="relative z-10 flex items-center gap-2">
-                    <MousePointerClick size={16} />
-                    תראה לי איפה אני מפסיד כסף
-                </span>
-             </a>
-        </motion.div>
-
-      </div>
     </section>
   );
 });

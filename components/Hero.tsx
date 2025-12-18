@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
         {/* 1. Base Static Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
-        {/* 2. 3D Moving Floor Grid */}
+        {/* 2. 3D Moving Floor Grid - REMOVED SCANNER LINE */}
         <div 
             className="absolute bottom-[-20%] left-[-50%] right-[-50%] h-[80vh] origin-bottom bg-[linear-gradient(rgba(6,182,212,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.15)_1px,transparent_1px)] bg-[size:60px_60px]"
             style={{ 
@@ -58,11 +58,7 @@ export const Hero: React.FC = () => {
                 WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)'
             }} 
         >
-             <motion.div 
-                animate={{ y: [0, 600] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="w-full h-[2px] bg-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.8)]"
-             />
+             {/* Scanner line removed */}
         </div>
 
         {/* 3. Floating Digital Data Particles (Rounded) */}
