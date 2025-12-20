@@ -64,9 +64,25 @@ const projects = [
 export const PortfolioCarousel: React.FC = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Swipe State
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   }, []);
 
   useEffect(() => {
@@ -74,6 +90,40 @@ export const PortfolioCarousel: React.FC = memo(() => {
     const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, handleNext]);
+
+  // Touch Handlers
+  const onTouchStart = (e: React.TouchEvent) => {
+    setIsAutoPlaying(false);
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrev();
+    }
+
+    // Reset interaction state
+    setTouchStart(null);
+    setTouchEnd(null);
+    
+    // Resume autoplay after a short delay
+    setTimeout(() => setIsAutoPlaying(true), 4000);
+  };
 
   const getCardStyle = (index: number) => {
     const total = projects.length;
@@ -136,6 +186,9 @@ export const PortfolioCarousel: React.FC = memo(() => {
             className="relative w-full h-[400px] flex justify-center items-center perspective-[1200px]"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
         >
             {projects.map((project, index) => {
                 const style = getCardStyle(index);
@@ -148,8 +201,10 @@ export const PortfolioCarousel: React.FC = memo(() => {
                         animate={style}
                         transition={{
                             type: "spring",
-                            stiffness: 200,
-                            damping: 20
+                            // Softer spring on mobile for "classic/calm" feel
+                            stiffness: isMobile ? 80 : 200,
+                            damping: isMobile ? 25 : 20,
+                            mass: isMobile ? 1.2 : 1
                         }}
                         className="absolute w-[300px] md:w-[450px] aspect-[4/3] rounded-xl cursor-pointer will-change-transform transform-gpu"
                         style={{ transformStyle: 'preserve-3d' }}
@@ -196,12 +251,7 @@ export const PortfolioCarousel: React.FC = memo(() => {
                                 <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
                                     <div className="flex justify-between items-end">
                                         <div className="text-right">
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <span className={`w-1.5 h-1.5 rounded-full ${project.styles.categoryDot}`} />
-                                                <span className={`text-[10px] font-bold tracking-wider uppercase font-mono ${project.styles.categoryText}`}>
-                                                    {project.category}
-                                                </span>
-                                            </div>
+                                            {/* Removed English Category Subtitles */}
                                             <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
                                             <p className={`text-sm text-slate-300 font-light transition-all duration-500 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                                                 {project.description}

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, ShieldCheck, Palette, Target } from 'lucide-react';
 
@@ -27,6 +27,15 @@ const reasons = [
 ];
 
 export const WhyChooseMe: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,12 +47,28 @@ export const WhyChooseMe: React.FC = () => {
     }
   };
 
+  // Spectacular 3D Entrance Effect
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 }, 
+    hidden: { 
+      opacity: 0, 
+      y: 60,              // Start lower
+      scale: 0.8,         // Start smaller
+      rotateX: 40,        // Tilt back 3D effect
+      filter: "blur(10px)", // Motion blur start
+      transformPerspective: 1000 
+    }, 
     visible: { 
       opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.6, ease: "easeOut" }
+      y: 0, 
+      scale: 1,
+      rotateX: 0,
+      filter: "blur(0px)", // Focus
+      transition: { 
+          type: "spring",
+          damping: 15,    // Less friction = smoother stop
+          stiffness: 80,  // Powerful spring
+          mass: 1.1
+      }
     }
   };
 
@@ -63,10 +88,10 @@ export const WhyChooseMe: React.FC = () => {
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-32 text-center lg:text-right">
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 30, filter: "blur(5px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="w-14 h-1.5 bg-cyan-500 mb-8 rounded-full shadow-none mx-auto lg:mx-0 lg:mr-0" />
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1] tracking-tighter">
@@ -85,34 +110,38 @@ export const WhyChooseMe: React.FC = () => {
             </div>
           </div>
 
-          {/* Staggered ROUNDED Cards List */}
+          {/* Staggered ROUNDED Cards List with 3D Effect */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="lg:w-2/3 grid gap-8"
+            viewport={{ once: true, margin: "-50px" }}
+            className="lg:w-2/3 grid gap-8 perspective-[2000px]" // Added perspective to container
           >
             {reasons.map((reason, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 className="group relative"
+                style={{ transformStyle: "preserve-3d" }}
               >
                 {/* Rounded Card Container */}
-                <div className="bg-slate-900/40 border border-white/5 p-6 md:p-8 rounded-[2rem] hover:bg-slate-900/60 hover:border-cyan-500/30 transition-all duration-300">
+                <div className="bg-slate-900/40 border border-white/5 p-6 md:p-8 rounded-[2rem] hover:bg-slate-900/60 hover:border-cyan-500/30 transition-all duration-300 relative overflow-hidden">
                     
+                    {/* Hover Glow Effect inside card */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out skew-x-12" />
+
                     <div className="relative z-10 flex flex-col sm:flex-row gap-6 items-start">
                         {/* Rounded Icon Box */}
                         <div className="w-14 h-14 flex items-center justify-center bg-cyan-950/30 border border-cyan-500/20 text-cyan-400 rounded-2xl group-hover:text-white group-hover:bg-cyan-500 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]">
-                            <reason.icon className="w-6 h-6" />
+                            <reason.icon className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
                         </div>
 
                         <div className="text-right flex-1">
                             <h3 className="text-2xl font-black text-white mb-2 group-hover:text-cyan-400 transition-colors">
                                 {reason.title}
                             </h3>
-                            <p className="text-slate-400 font-light leading-relaxed text-base group-hover:text-slate-300">
+                            <p className="text-slate-400 font-light leading-relaxed text-base group-hover:text-slate-300 transition-colors">
                                 {reason.desc}
                             </p>
                         </div>

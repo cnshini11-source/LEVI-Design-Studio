@@ -16,7 +16,29 @@ export const Header: React.FC = () => {
   });
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const duration = 600; // Faster speed (0.6s)
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    // Classic ease-out cubic function for smooth, calm deceleration
+    const easeOutCubic = (t: number) => (--t) * t * t + 1;
+
+    const animateScroll = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        
+        if (elapsed >= duration) {
+            window.scrollTo(0, 0);
+            return;
+        }
+        
+        const progress = elapsed / duration;
+        const ease = easeOutCubic(progress);
+        
+        window.scrollTo(0, start * (1 - ease));
+        requestAnimationFrame(animateScroll);
+    };
+
+    requestAnimationFrame(animateScroll);
   };
 
   return (

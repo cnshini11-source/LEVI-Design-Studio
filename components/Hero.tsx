@@ -1,5 +1,5 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './Button';
 import { ChevronDown, Rocket, Sparkles } from 'lucide-react';
@@ -7,6 +7,14 @@ import { ChevronDown, Rocket, Sparkles } from 'lucide-react';
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Rounded data particles
   const particles = useMemo(() => {
@@ -25,8 +33,8 @@ export const Hero: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // Faster stagger
-        delayChildren: 0.1 // Faster delay
+        staggerChildren: isMobile ? 0.2 : 0.1, // Slower stagger on mobile
+        delayChildren: isMobile ? 0.3 : 0.1
       }
     }
   };
@@ -36,7 +44,11 @@ export const Hero: React.FC = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } // Much faster duration
+      transition: { 
+          // Slower, calmer duration and easing for mobile
+          duration: isMobile ? 1.2 : 0.6, 
+          ease: isMobile ? "easeOut" : [0.16, 1, 0.3, 1] 
+      }
     }
   };
 
@@ -84,7 +96,7 @@ export const Hero: React.FC = () => {
             <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }} // Faster main element
+                transition={{ duration: isMobile ? 1.5 : 0.6, ease: "easeOut" }} // Slower main element on mobile
                 className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center will-change-transform mt-0 lg:mt-0"
             >
                 <div className="relative flex flex-col items-center justify-center lg:justify-end h-full w-full">
