@@ -65,8 +65,8 @@ export const TechSection: React.FC = memo(() => {
                     </p>
                 </motion.div>
 
-                {/* Feature List */}
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Feature List - VISUAL UPDATE: Dashboard Sensors instead of Buttons */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
                     {[
                         { icon: Eye, label: "זיהוי נקודות עיוורון" },
                         { icon: Fingerprint, label: "ניתוח התנהגות גולש" },
@@ -79,10 +79,34 @@ export const TechSection: React.FC = memo(() => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 + (i * 0.1) }}
-                            className="flex items-center gap-3 text-slate-300 bg-white/5 p-3 rounded-lg border border-white/5 hover:border-cyan-500/30 transition-colors"
+                            // Changed styles: No hover borders, added cursor-default to imply "Read Only / Status"
+                            className="relative flex items-center gap-4 group cursor-default select-none"
                         >
-                            <item.icon size={18} className="text-cyan-400" />
-                            <span className="text-sm font-medium">{item.label}</span>
+                            {/* Vertical Status Line */}
+                            <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-[2px] h-full bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent group-hover:via-cyan-400/50 transition-colors duration-500" />
+                            
+                            {/* Icon Container - Sensor Look */}
+                            <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+                                {/* Rotating Ring */}
+                                <div className="absolute inset-0 border border-cyan-500/30 rounded-full border-t-transparent animate-[spin_4s_linear_infinite]" />
+                                {/* Static Ring */}
+                                <div className="absolute inset-0 border border-white/5 rounded-full" />
+                                
+                                <item.icon size={20} className="text-cyan-400 relative z-10 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                            </div>
+
+                            <div className="flex flex-col gap-1">
+                                <span className="text-base font-bold text-slate-200 tracking-wide">
+                                    {item.label}
+                                </span>
+                                {/* Data Visualization Lines */}
+                                <div className="flex items-center gap-1 h-1">
+                                    <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />
+                                    <div className="w-8 h-[2px] bg-cyan-900/50 rounded-full overflow-hidden">
+                                        <div className="h-full bg-cyan-500/50 w-full origin-right animate-[scaleX_1.5s_ease-in-out_infinite]" />
+                                    </div>
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
