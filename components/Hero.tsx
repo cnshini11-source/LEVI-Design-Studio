@@ -191,7 +191,7 @@ export const Hero: React.FC = () => {
                     <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
                         <Button variant="primary" className="text-xl md:text-2xl px-12 py-6 rounded-full h-auto shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] border border-cyan-400/50 group overflow-hidden">
                             <span className="flex items-center gap-4 relative z-10">
-                                בוא נדבר
+                                בדיקת התאמה בחינם
                                 <span className="relative w-8 h-8 flex items-center justify-center">
                                     <Rocket className="w-8 h-8 absolute inset-0 transform -rotate-45 group-hover:rotate-0 group-hover:scale-110 transition-transform duration-500 ease-in-out text-white fill-white/20" />
                                 </span>

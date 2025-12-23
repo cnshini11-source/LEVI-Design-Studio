@@ -73,7 +73,7 @@ export const WhyChooseMe: React.FC = () => {
   };
 
   return (
-    <section id="why-us" className="pt-10 pb-24 md:pb-32 relative overflow-hidden bg-[#020617]">
+    <section id="why-us" className="pt-0 pb-24 md:pb-32 relative overflow-hidden bg-[#020617]">
       {/* BACKGROUND: Deep Black/Gray Gradient */}
       <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-black" />

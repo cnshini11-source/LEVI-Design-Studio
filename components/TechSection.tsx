@@ -5,7 +5,7 @@ import { Scan, AlertTriangle, Eye, Fingerprint, MousePointer2 } from 'lucide-rea
 
 export const TechSection: React.FC = memo(() => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden bg-[#020617] flex flex-col items-center justify-center">
+    <section className="relative pt-20 pb-8 md:pt-32 md:pb-12 overflow-hidden bg-[#020617] flex flex-col items-center justify-center">
         
         {/* --- 1. BACKGROUND LAYERS --- */}
         <div className="absolute inset-0 z-0 pointer-events-none">
