@@ -51,10 +51,12 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-center relative z-10 w-full">
         
-        {/* Logo Section */}
-        <div 
+        {/* Logo Section - Converted to semantic button for SEO/Accessbility */}
+        <button 
           onClick={scrollToTop}
-          className="flex items-center gap-4 cursor-pointer select-none relative group"
+          type="button"
+          aria-label="גלול לראש העמוד - LEVI"
+          className="flex items-center gap-4 cursor-pointer select-none relative group bg-transparent border-none p-0 outline-none"
         >
           <div className="relative flex items-center justify-center">
             {/* Removed background circle as requested */}
@@ -67,7 +69,7 @@ export const Header: React.FC = () => {
              </span>
              {/* Static underline removed */}
           </div>
-        </div>
+        </button>
 
       </div>
     </header>

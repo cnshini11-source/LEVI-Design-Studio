@@ -128,7 +128,7 @@ export const TechSection: React.FC = memo(() => {
                         {/* The Provided Image */}
                         <img 
                             src="https://i.imgur.com/7AeCf78.jpg" 
-                            alt="Interface Analysis" 
+                            alt="LEVI AI Traffic Analysis Dashboard" 
                             className="w-full h-full object-cover opacity-80"
                         />
                         

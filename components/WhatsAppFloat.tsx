@@ -34,6 +34,7 @@ export const WhatsAppFloat: React.FC = () => {
             href="https://wa.me/972538227778"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="צרו קשר בווצאפ - בוא נדבר תכלס"
             // Increased vertical padding to py-5 for a taller look
             className="group relative flex flex-row items-center gap-3 pl-5 pr-4 py-5 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] border border-white/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
           >

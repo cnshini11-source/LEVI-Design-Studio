@@ -100,11 +100,12 @@ export const Hero: React.FC = () => {
                 className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center will-change-transform mt-0 lg:mt-0"
             >
                 <div className="relative flex flex-col items-center justify-center lg:justify-end h-full w-full">
-                    {/* ROBOT / SVG CONTAINER */}
+                    {/* ROBOT / SVG CONTAINER - aria-hidden for decorative SVG */}
                     <motion.div
                         animate={{ y: [-4, 4, -4] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 will-change-transform transform-gpu opacity-40 lg:opacity-100" 
+                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 will-change-transform transform-gpu opacity-40 lg:opacity-100"
+                        aria-hidden="true" 
                     >
                         <svg viewBox="0 0 200 400" className="w-full h-full drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                             <defs>
@@ -188,7 +189,7 @@ export const Hero: React.FC = () => {
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 relative z-10">
-                    <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/972538227778" target="_blank" rel="noopener noreferrer" aria-label="בדיקת התאמה בחינם בווצאפ">
                         <Button variant="primary" className="text-xl md:text-2xl px-12 py-6 rounded-full h-auto shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] border border-cyan-400/50 group overflow-hidden">
                             <span className="flex items-center gap-4 relative z-10">
                                 בדיקת התאמה בחינם
