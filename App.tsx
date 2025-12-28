@@ -6,7 +6,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero'; 
 import { ScrollProgress } from './components/ScrollProgress';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
-import { GlobalTechFrame } from './components/GlobalTechFrame'; // New Import
 
 // --- Helper for Named Exports Lazy Loading ---
 const lazyLoad = (importFunc: Promise<any>, componentName: string) => {
@@ -25,7 +24,6 @@ function App() {
   return (
     <div className="bg-[#020617] min-h-screen text-white selection:bg-cyan-500/30 overflow-hidden relative">
       <ScrollProgress />
-      <GlobalTechFrame /> {/* Added Visual Depth Frame */}
       <Header />
       
       <main>

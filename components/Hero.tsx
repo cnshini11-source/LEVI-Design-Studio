@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  // Rounded data particles
+  // 1. Existing Data Particles (Rounded)
   const particles = useMemo(() => {
     return Array.from({ length: 20 }).map((_, i) => ({
       id: i,
@@ -28,12 +28,34 @@ export const Hero: React.FC = () => {
     }));
   }, []);
 
+  // 2. New Stars (Static & Active) - Optimized for Performance
+  const { staticStars, activeStars } = useMemo(() => {
+    const staticS = Array.from({ length: 40 }).map((_, i) => ({
+      id: `static-${i}`,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: Math.random() * 1.5 + 1,
+      opacity: Math.random() * 0.4 + 0.1, // Subtle opacity
+    }));
+
+    const activeS = Array.from({ length: 25 }).map((_, i) => ({
+      id: `active-${i}`,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 5
+    }));
+
+    return { staticStars: staticS, activeStars: activeS };
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: isMobile ? 0.2 : 0.1, // Slower stagger on mobile
+        staggerChildren: isMobile ? 0.2 : 0.1, 
         delayChildren: isMobile ? 0.3 : 0.1
       }
     }
@@ -45,7 +67,6 @@ export const Hero: React.FC = () => {
       opacity: 1, 
       y: 0,
       transition: { 
-          // Slower, calmer duration and easing for mobile
           duration: isMobile ? 1.2 : 0.6, 
           ease: isMobile ? "easeOut" : [0.16, 1, 0.3, 1] 
       }
@@ -61,23 +82,60 @@ export const Hero: React.FC = () => {
         {/* 1. Base Static Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
-        {/* 2. 3D Moving Floor Grid - REMOVED SCANNER LINE */}
+        {/* 2. 3D Moving Floor Grid */}
         <div 
             className="absolute bottom-[-20%] left-[-50%] right-[-50%] h-[80vh] origin-bottom bg-[linear-gradient(rgba(6,182,212,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.15)_1px,transparent_1px)] bg-[size:60px_60px]"
             style={{ 
                 transform: 'rotateX(70deg)',
                 maskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)'
+                WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                willChange: 'transform' // Performance Hint
             }} 
         >
-             {/* Scanner line removed */}
         </div>
+
+        {/* --- NEW STAR FIELD --- */}
+        {/* Static Stars (Low Cost) */}
+        {staticStars.map((star) => (
+            <div
+                key={star.id}
+                className="absolute bg-white rounded-full"
+                style={{
+                    top: star.top,
+                    left: star.left,
+                    width: `${star.size}px`,
+                    height: `${star.size}px`,
+                    opacity: star.opacity,
+                }}
+            />
+        ))}
+
+        {/* Active Twinkling Stars (Visual Interest) */}
+        {activeStars.map((star) => (
+            <motion.div
+                key={star.id}
+                className="absolute bg-cyan-100 rounded-full"
+                style={{
+                    top: star.top,
+                    left: star.left,
+                    width: `${star.size}px`,
+                    height: `${star.size}px`,
+                }}
+                animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }}
+                transition={{ 
+                    duration: star.duration, 
+                    repeat: Infinity, 
+                    delay: star.delay, 
+                    ease: "easeInOut" 
+                }}
+            />
+        ))}
 
         {/* 3. Floating Digital Data Particles (Rounded) */}
         {particles.map((p) => (
             <motion.div
                 key={p.id}
-                className="absolute bg-cyan-400/40 rounded-full will-change-[opacity]"
+                className="absolute bg-cyan-400/40 rounded-full will-change-[opacity,transform]"
                 style={{
                     top: p.top,
                     left: p.left,
@@ -96,15 +154,17 @@ export const Hero: React.FC = () => {
             <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: isMobile ? 1.5 : 0.6, ease: "easeOut" }} // Slower main element on mobile
-                className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center will-change-transform mt-0 lg:mt-0"
+                transition={{ duration: isMobile ? 1.5 : 0.6, ease: "easeOut" }} 
+                className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center mt-0 lg:mt-0"
+                style={{ willChange: "transform, opacity" }}
             >
                 <div className="relative flex flex-col items-center justify-center lg:justify-end h-full w-full">
-                    {/* ROBOT / SVG CONTAINER - aria-hidden for decorative SVG */}
+                    {/* ROBOT / SVG CONTAINER */}
                     <motion.div
                         animate={{ y: [-4, 4, -4] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 will-change-transform transform-gpu opacity-40 lg:opacity-100"
+                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 opacity-40 lg:opacity-100"
+                        style={{ willChange: "transform" }}
                         aria-hidden="true" 
                     >
                         <svg viewBox="0 0 200 400" className="w-full h-full drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">

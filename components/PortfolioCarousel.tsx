@@ -46,8 +46,8 @@ const projects = [
     title: "IDAN FITNESS",
     category: "Health & Sport",
     description: "דף נחיתה הממיר בטירוף למותג כושר.",
-    link: "#",
-    image: "https://i.imgur.com/eQ6sscB.png",
+    link: "https://cnshini11-source.github.io/idofitness/",
+    image: "https://i.imgur.com/pm8Z9ig.png",
     // Emerald / Green Theme
     styles: {
       activeShadow: "shadow-[0_0_80px_-10px_rgba(16,185,129,0.5)]",
@@ -235,6 +235,7 @@ export const PortfolioCarousel: React.FC = memo(() => {
                                       src={project.image} 
                                       alt={project.title} 
                                       loading="lazy"
+                                      decoding="async" // PERFORMANCE BOOST: Async decoding prevents main thread blocking
                                       className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isActive ? 'group-hover:scale-105' : ''}`}
                                       draggable="false"
                                     />
