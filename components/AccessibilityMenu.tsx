@@ -104,7 +104,7 @@ export const AccessibilityMenu: React.FC = () => {
             initial={{ opacity: 0, y: 10, scale: 0.95, originY: 1, originX: 0 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-14 left-0 bg-slate-900 border border-white/10 rounded-xl shadow-2xl w-[320px] origin-bottom-left overflow-hidden"
+            className="absolute bottom-14 left-0 bg-slate-900 border border-white/10 rounded-xl shadow-2xl w-[85vw] max-w-[320px] origin-bottom-left overflow-hidden"
           >
             <div className="flex justify-between items-center p-3 bg-white/5 border-b border-white/5">
                 <span className="font-bold text-white text-sm">כלי נגישות</span>

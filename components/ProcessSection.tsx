@@ -98,14 +98,15 @@ const Card: React.FC<CardProps> = ({
             CARD CONTAINER UPDATES:
             - Removed backdrop-blur-2xl (Heavy Performance Cost)
             - Changed to bg-[#020617]/95 (Deep Premium Black)
+            - Mobile Optimization: p-6 instead of p-8
         */}
-        <div className={`relative overflow-hidden rounded-[2rem] bg-[#020617]/95 border p-8 flex flex-col gap-6 transition-all duration-500 ${step.premiumStyle} group min-h-[500px] justify-between z-10`}>
+        <div className={`relative overflow-hidden rounded-[2rem] bg-[#020617]/95 border p-6 md:p-8 flex flex-col gap-6 transition-all duration-500 ${step.premiumStyle} group min-h-[500px] justify-between z-10`}>
             
             {/* Dynamic Hover Gradient */}
             <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
 
-            {/* Giant Number Background */}
-            <div className="absolute -right-4 -bottom-10 text-[180px] font-black leading-none select-none pointer-events-none text-white/[0.03] z-0">
+            {/* Giant Number Background - Responsive Size */}
+            <div className="absolute -right-4 -bottom-10 text-[120px] md:text-[180px] font-black leading-none select-none pointer-events-none text-white/[0.03] z-0">
                 {step.id}
             </div>
 
@@ -126,7 +127,7 @@ const Card: React.FC<CardProps> = ({
 
                 {/* Text Content */}
                 <div className="flex-1 flex flex-col justify-center">
-                    <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-cyan-50 transition-colors">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-cyan-50 transition-colors">
                         {step.title}
                     </h3>
                     <p className="text-slate-300 text-lg leading-relaxed font-light">

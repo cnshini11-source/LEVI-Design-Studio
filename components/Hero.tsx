@@ -228,7 +228,7 @@ export const Hero: React.FC = () => {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-col items-center lg:items-start text-center lg:text-right order-last lg:order-first pb-10 lg:pb-0 relative z-20 -mt-36 lg:mt-0"
+                className="flex flex-col items-center lg:items-start text-center lg:text-right order-last lg:order-first pb-10 lg:pb-0 relative z-20 -mt-12 lg:mt-0 lg:-mt-0"
             >
                 <motion.div variants={itemVariants} className="mb-4 lg:mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 backdrop-blur-none relative group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
@@ -236,7 +236,7 @@ export const Hero: React.FC = () => {
                     <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
                 </motion.div>
 
-                <motion.h1 variants={itemVariants} className="relative z-10 text-[2.75rem] sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
+                <motion.h1 variants={itemVariants} className="relative z-10 text-[2.5rem] leading-tight sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-2xl">
                     אני לא בונה אתר
                     <br />
                     <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">

@@ -206,7 +206,8 @@ export const PortfolioCarousel: React.FC = memo(() => {
                             damping: isMobile ? 25 : 20,
                             mass: isMobile ? 1.2 : 1
                         }}
-                        className="absolute w-[300px] md:w-[450px] aspect-[4/3] rounded-xl cursor-pointer will-change-transform transform-gpu"
+                        // MOBILE OPTIMIZATION: Use vw width (75vw) for better scaling on small screens
+                        className="absolute w-[75vw] sm:w-[300px] md:w-[450px] aspect-[4/3] rounded-xl cursor-pointer will-change-transform transform-gpu"
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                          <a

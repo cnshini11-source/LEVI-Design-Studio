@@ -20,7 +20,7 @@ export const TechSection: React.FC = memo(() => {
             />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="relative z-10 w-full max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             
             {/* --- LEFT SIDE: THE TEXT (PAIN & SOLUTION) --- */}
             <div className="text-right order-2 lg:order-1">
