@@ -128,8 +128,10 @@ export const TechSection: React.FC = memo(() => {
                         {/* The Provided Image */}
                         <img 
                             src="https://i.imgur.com/7AeCf78.jpg" 
-                            alt="LEVI AI Traffic Analysis Dashboard" 
+                            alt="לוי בניית אתרים - מערכת ניתוח תנועה לדפי נחיתה חכמים" 
                             className="w-full h-full object-cover opacity-80"
+                            loading="lazy"
+                            decoding="async"
                         />
                         
                         {/* Overlay to ensure scanner visibility */}

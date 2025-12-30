@@ -1,3 +1,4 @@
+
 import React, { useState, Suspense, lazy } from 'react';
 import { Rocket, Github, Instagram, Facebook } from 'lucide-react';
 
@@ -20,6 +21,16 @@ export const Footer: React.FC = () => {
               </div>
               <span className="text-2xl font-black tracking-wider text-white group-hover:text-cyan-100 transition-colors">LEVI</span>
             </div>
+
+            {/* Middle Section */}
+            <div className="text-center mb-6 md:mb-0 px-4">
+                 <h3 className="text-slate-300 font-bold text-base md:text-lg tracking-wide">
+                    לוי אתר תדמית ודף נחיתה ממיר לעסק שלך
+                 </h3>
+                 <p className="text-slate-500 text-xs md:text-sm mt-1 font-light">
+                    מהירות גבוהה והתאמה מלאה למובייל
+                 </p>
+            </div>
             
             {/* Social Icons */}
             <div className="flex gap-6">
@@ -29,9 +40,22 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} LEVI. כל הזכויות שמורות.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 text-sm text-slate-500">
+            <div className="flex flex-col gap-3">
+                <p>© {new Date().getFullYear()} LEVI. כל הזכויות שמורות.</p>
+                
+                {/* Added Contact Details */}
+                <div className="flex flex-col gap-1 text-[11px] text-slate-600 font-light">
+                    <span className="text-slate-500 font-medium">לוי שיני בונה אתרים מוסמך</span>
+                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
+                        <a href="mailto:cnshini11@gmail.com" className="hover:text-cyan-400 transition-colors">מייל: cnshini11@gmail.com</a>
+                        <span className="hidden sm:block text-slate-800">|</span>
+                        <a href="tel:0538227778" className="hover:text-cyan-400 transition-colors">טלפון: 053-8227778</a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex gap-6">
               <button onClick={() => setModalType('privacy')} className="hover:text-cyan-400 transition-colors">מדיניות פרטיות</button>
               <button onClick={() => setModalType('terms')} className="hover:text-cyan-400 transition-colors">תנאי שימוש</button>
             </div>

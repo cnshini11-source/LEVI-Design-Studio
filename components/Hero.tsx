@@ -236,7 +236,7 @@ export const Hero: React.FC = () => {
                     <span className="text-cyan-100 text-sm font-bold tracking-wide uppercase">העתיד של האינטרנט כאן</span>
                 </motion.div>
 
-                <motion.h1 variants={itemVariants} className="relative z-10 text-[2.5rem] leading-tight sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-2xl">
+                <motion.h1 variants={itemVariants} className="relative z-10 text-[2.5rem] leading-tight sm:text-5xl md:text-7xl font-black text-white mb-2 tracking-tight drop-shadow-2xl">
                     אני לא בונה אתר
                     <br />
                     <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-[textShine_4s_linear_infinite] bg-[length:200%_auto] will-change-[background-position]">
@@ -247,20 +247,15 @@ export const Hero: React.FC = () => {
                 {/* --- TIGHT CHARISMATIC TEXT LAYOUT --- */}
                 <motion.div 
                     variants={itemVariants} 
-                    className="flex flex-col gap-2 mb-8 lg:mb-12 relative z-10 max-w-3xl"
+                    className="flex flex-col gap-4 mb-8 lg:mb-12 relative z-10 max-w-3xl"
                 >
-                    <p className="text-xl md:text-2xl font-medium text-white leading-tight">
-                        דפי נחיתה ואתרים שעובדים ומביאים תכל׳ס לקוחות.
+                    <p className="text-xl md:text-2xl font-bold text-cyan-400 leading-tight">
+                        לוי בניית אתרים ודפי נחיתה
                     </p>
                     
-                    <div className="flex flex-col text-lg md:text-2xl text-slate-300 font-light space-y-1">
-                        <p>
-                            עיצוב מדויק, חוויית משתמש מבוססת <span className="font-bold text-cyan-400">AI</span>
-                        </p>
-                        <p>
-                            ומערכת שממירה לידים לכסף — <span className="font-bold text-white tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">24/7</span>
-                        </p>
-                    </div>
+                    <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">
+                         אני בונה לך עסק שעובד <span className="text-white font-medium">24/7</span> ומביא תכלס לקוחות – מכונת שיווק עם מערכת AI שלא עוצרת לרגע.
+                    </p>
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 relative z-10">

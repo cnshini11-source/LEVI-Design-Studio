@@ -104,7 +104,7 @@ export const WhyChooseMe: React.FC = () => {
                   </span>
                 </h2>
                 <p className="text-slate-400 text-lg md:text-xl leading-relaxed font-light max-w-sm mx-auto lg:mx-0 lg:mr-0">
-                  בעולם שבו כולם נראים אותו דבר, אנחנו נותנים לך את היתרון הטכנולוגי והעסקי עם חותמת איכות בלתי מתפשרת.
+                  לוי בונה אתרים ודפי נחיתה עם חותמת אישית. אני לא מאמין בפתרונות מדף, אלא ביצירה המותאמת בול לצרכים שלך – עם יחס אישי, דיוק בפרטים ומחויבות לתוצאות שמביאות כסף.
                 </p>
               </motion.div>
             </div>

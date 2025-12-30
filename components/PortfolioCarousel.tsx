@@ -9,7 +9,8 @@ const projects = [
     category: "Premium E-Commerce",
     description: "אתר תדמית ומכירות יוקרתי לתכשיטים.",
     link: "https://cnshini11-source.github.io/LEVI-ITZHAK-SHINI/",
-    image: "https://i.imgur.com/iNQ0K2j.png",
+    // Optimized: Converted to JPG for smaller file size
+    image: "https://i.imgur.com/iNQ0K2j.jpg",
     // Pink Theme (Button now solid Pink)
     styles: {
       // Pink Halo: Visible but delicate (Pink-500 at 0.5 opacity with large spread)
@@ -28,7 +29,8 @@ const projects = [
     category: "Health & AI",
     description: "אתר למכשיר שמחסל נחירות מבוסס AI",
     link: "https://cnshini11-source.github.io/shini/",
-    image: "https://i.imgur.com/ozMneOp.png",
+    // Optimized: Converted to JPG for smaller file size
+    image: "https://i.imgur.com/ozMneOp.jpg",
     // Black, Gray & Gold Theme
     styles: {
       // Mixed Halo: Gray (Silver) + Gold layers to create "Black Gray Gold" effect
@@ -47,7 +49,8 @@ const projects = [
     category: "Health & Sport",
     description: "דף נחיתה הממיר בטירוף למותג כושר.",
     link: "https://cnshini11-source.github.io/idofitness/",
-    image: "https://i.imgur.com/pm8Z9ig.png",
+    // Optimized: Converted to JPG for smaller file size
+    image: "https://i.imgur.com/pm8Z9ig.jpg",
     // Emerald / Green Theme
     styles: {
       activeShadow: "shadow-[0_0_80px_-10px_rgba(16,185,129,0.5)]",
@@ -234,7 +237,7 @@ export const PortfolioCarousel: React.FC = memo(() => {
                                 {project.image && (
                                     <img 
                                       src={project.image} 
-                                      alt={project.title} 
+                                      alt={`${project.title} - לוי בניית אתרים ודפי נחיתה | ${project.description}`}
                                       loading="lazy"
                                       decoding="async" // PERFORMANCE BOOST: Async decoding prevents main thread blocking
                                       className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isActive ? 'group-hover:scale-105' : ''}`}
