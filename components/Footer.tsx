@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-3">
                 <p>© {new Date().getFullYear()} LEVI. כל הזכויות שמורות.</p>
                 
-                {/* Added Contact Details */}
+                {/* Added Contact Details with SEO Keywords Naturally Integrated */}
                 <div className="flex flex-col gap-1 text-[11px] text-slate-600 font-light">
                     <span className="text-slate-500 font-medium">לוי שיני בונה אתרים מוסמך, מתמחה בבניית אתרים ודפי נחיתה לעסקים בישראל</span>
                     <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
@@ -61,16 +61,18 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* SEO / Credits Section - Added for Google Ranking */}
+          {/* SEO / Credits Section - Optimized for Keyword Ranking without visual clutter */}
           <div className="mt-8 pt-6 border-t border-white/5">
-             <div className="text-[10px] text-slate-800 text-center leading-relaxed font-light max-w-5xl mx-auto space-y-2 hover:text-slate-600 transition-colors duration-500">
+             <div className="text-[10px] text-slate-800 text-center leading-relaxed font-light max-w-5xl mx-auto space-y-2 hover:text-slate-600 transition-colors duration-500 cursor-default">
+                <h4 className="sr-only">לוי שיני בניית אתרים ודפי נחיתה</h4>
                 <p>
-                   <strong className="font-medium">לוי בניית אתרים ודפי נחיתה</strong> – 
-                   הבית של העסקים שרוצים יותר. אנו מתמחים בבניית אתרי תדמית יוקרתיים, פיתוח דפי נחיתה למקסום המרות, וקידום אתרים אורגני בגוגל (SEO).
+                   מחפש <strong>לוי שיני בונה אתרים</strong>? הגעת למקום הנכון. 
+                   אנו הכתובת המדויקת עבור <strong>לוי בונה אתרים שמביאים תכלס לקוחות</strong>.
+                   המומחיות שלנו היא פיתוח <strong>לוי אתרים ודפי נחיתה ממירים</strong> שמייצרים רווחים.
                 </p>
                 <p>
-                   לוי שיני מספק מעטפת דיגיטלית מלאה: החל מאפיון חווית משתמש (UX/UI), דרך פיתוח טכנולוגי מהיר ומאובטח, ועד חיבור למערכות אוטומציה.
-                   מחפש בונה אתרים מומלץ? הגעת למקום הנכון. אנו הופכים גולשים ללקוחות משלמים בעזרת טכנולוגיה מתקדמת ועיצוב מנצח.
+                   בין אם אתה צריך דף נחיתה או אתר תדמית, לוי שיני בונה אתרים עם טכנולוגיה מתקדמת לקידום בגוגל.
+                   אל תתפשר על פחות מאתר שעובד בשבילך.
                 </p>
              </div>
           </div>
