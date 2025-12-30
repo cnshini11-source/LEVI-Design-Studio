@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                 
                 {/* Added Contact Details */}
                 <div className="flex flex-col gap-1 text-[11px] text-slate-600 font-light">
-                    <span className="text-slate-500 font-medium">לוי שיני בונה אתרים מוסמך</span>
+                    <span className="text-slate-500 font-medium">לוי שיני בונה אתרים מוסמך, מתמחה בבניית אתרים ודפי נחיתה לעסקים בישראל</span>
                     <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
                         <a href="mailto:cnshini11@gmail.com" className="hover:text-cyan-400 transition-colors">מייל: cnshini11@gmail.com</a>
                         <span className="hidden sm:block text-slate-800">|</span>
@@ -59,6 +59,20 @@ export const Footer: React.FC = () => {
               <button onClick={() => setModalType('privacy')} className="hover:text-cyan-400 transition-colors">מדיניות פרטיות</button>
               <button onClick={() => setModalType('terms')} className="hover:text-cyan-400 transition-colors">תנאי שימוש</button>
             </div>
+          </div>
+
+          {/* SEO / Credits Section - Added for Google Ranking */}
+          <div className="mt-8 pt-6 border-t border-white/5">
+             <div className="text-[10px] text-slate-800 text-center leading-relaxed font-light max-w-5xl mx-auto space-y-2 hover:text-slate-600 transition-colors duration-500">
+                <p>
+                   <strong className="font-medium">לוי בניית אתרים ודפי נחיתה</strong> – 
+                   הבית של העסקים שרוצים יותר. אנו מתמחים בבניית אתרי תדמית יוקרתיים, פיתוח דפי נחיתה למקסום המרות, וקידום אתרים אורגני בגוגל (SEO).
+                </p>
+                <p>
+                   לוי שיני מספק מעטפת דיגיטלית מלאה: החל מאפיון חווית משתמש (UX/UI), דרך פיתוח טכנולוגי מהיר ומאובטח, ועד חיבור למערכות אוטומציה.
+                   מחפש בונה אתרים מומלץ? הגעת למקום הנכון. אנו הופכים גולשים ללקוחות משלמים בעזרת טכנולוגיה מתקדמת ועיצוב מנצח.
+                </p>
+             </div>
           </div>
         </div>
       </footer>

@@ -155,7 +155,8 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: isMobile ? 1.5 : 0.6, ease: "easeOut" }} 
-                className="flex relative w-full h-[100px] lg:h-[700px] order-first lg:order-last items-center justify-center mt-0 lg:mt-0"
+                // Optimized height for mobile (h-[200px] instead of h-[100px]) to allow robot to breathe
+                className="flex relative w-full h-[200px] lg:h-[700px] order-first lg:order-last items-center justify-center mt-0 lg:mt-0"
                 style={{ willChange: "transform, opacity" }}
             >
                 <div className="relative flex flex-col items-center justify-center lg:justify-end h-full w-full">
@@ -163,7 +164,8 @@ export const Hero: React.FC = () => {
                     <motion.div
                         animate={{ y: [-4, 4, -4] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative z-0 lg:z-20 w-14 lg:w-48 mt-44 lg:mt-0 mb-0 lg:mb-32 opacity-40 lg:opacity-100"
+                        // Mobile optimization: Reduced mt-44 to mt-12, w-14 to w-20 to be more visible
+                        className="relative z-0 lg:z-20 w-20 lg:w-48 mt-12 lg:mt-0 mb-0 lg:mb-32 opacity-40 lg:opacity-100"
                         style={{ willChange: "transform" }}
                         aria-hidden="true" 
                     >
@@ -228,7 +230,8 @@ export const Hero: React.FC = () => {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-col items-center lg:items-start text-center lg:text-right order-last lg:order-first pb-10 lg:pb-0 relative z-20 -mt-12 lg:mt-0 lg:-mt-0"
+                // Mobile optimization: Removed negative margin (-mt-12) to prevent overlap with robot in new layout
+                className="flex flex-col items-center lg:items-start text-center lg:text-right order-last lg:order-first pb-10 lg:pb-0 relative z-20 mt-4 lg:mt-0"
             >
                 <motion.div variants={itemVariants} className="mb-4 lg:mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 backdrop-blur-none relative group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />

@@ -161,28 +161,37 @@ export const PortfolioCarousel: React.FC = memo(() => {
 
       <div className="w-full max-w-6xl mx-auto px-6 relative z-10 flex flex-col items-center">
         
-        <div className="text-center mb-6 md:mb-16 max-w-xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center gap-2 mb-3 text-cyan-500 font-bold tracking-[0.2em] text-[10px] uppercase font-mono"
-            >
-                <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
-                <span>Selected_Projects_v2.0</span>
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-5xl font-black text-white leading-tight"
-            >
-               האחרונים <span className="text-white relative inline-block">
-                 שלי
-                 <span className="absolute bottom-1 right-0 w-full h-1 bg-cyan-600 rounded-full" />
-               </span>
-            </motion.h2>
+        <div className="text-center mb-6 md:mb-16 max-w-xl relative">
+            {/* Background Text - Embedded & Subtle as requested */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] h-full flex items-center justify-center pointer-events-none select-none z-0">
+                 <span className="text-[3.5rem] md:text-[6rem] font-black text-white/[0.03] whitespace-nowrap blur-[1px] opacity-60">
+                    דף נחיתה . אתר תדמית
+                 </span>
+            </div>
+
+            <div className="relative z-10">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-center justify-center gap-2 mb-3 text-cyan-500 font-bold tracking-[0.2em] text-[10px] uppercase font-mono"
+                >
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
+                    <span>Selected_Projects_v2.0</span>
+                </motion.div>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-3xl md:text-5xl font-black text-white leading-tight"
+                >
+                   האחרונים <span className="text-white relative inline-block">
+                     שלי
+                     <span className="absolute bottom-1 right-0 w-full h-1 bg-cyan-600 rounded-full" />
+                   </span>
+                </motion.h2>
+            </div>
         </div>
 
         <div 
@@ -210,7 +219,7 @@ export const PortfolioCarousel: React.FC = memo(() => {
                             mass: isMobile ? 1.2 : 1
                         }}
                         // MOBILE OPTIMIZATION: Use vw width (75vw) for better scaling on small screens
-                        className="absolute w-[75vw] sm:w-[300px] md:w-[450px] aspect-[4/3] rounded-xl cursor-pointer will-change-transform transform-gpu"
+                        className="absolute w-[80vw] sm:w-[300px] md:w-[450px] aspect-[4/3] rounded-xl cursor-pointer will-change-transform transform-gpu"
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                          <a
@@ -253,25 +262,25 @@ export const PortfolioCarousel: React.FC = memo(() => {
                                     <div className={`absolute inset-0 border-[1px] border-transparent group-hover:border-white/30 transition-colors duration-500 rounded-xl pointer-events-none`} />
                                 )}
 
-                                <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+                                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20">
                                     <div className="flex justify-between items-end">
                                         <div className="text-right">
                                             {/* Removed English Category Subtitles */}
-                                            <h3 className="text-2xl font-black text-white mb-2">{project.title}</h3>
-                                            <p className={`text-sm text-slate-300 font-light transition-all duration-500 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                                            <h3 className="text-xl md:text-2xl font-black text-white mb-2">{project.title}</h3>
+                                            <p className={`text-xs md:text-sm text-slate-300 font-light transition-all duration-500 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                                                 {project.description}
                                             </p>
                                         </div>
                                         
                                         {/* Action Button */}
                                         <span 
-                                          className={`w-12 h-12 rounded-full flex items-center justify-center border transition-all duration-300
+                                          className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border transition-all duration-300
                                             ${isActive 
                                                 ? `${project.styles.buttonActive} hover:scale-110`
                                                 : 'bg-white/5 border-white/10 text-slate-500'}`
                                           }
                                         >
-                                            <ArrowUpRight size={20} strokeWidth={2.5} />
+                                            <ArrowUpRight size={18} className="md:w-5 md:h-5" strokeWidth={2.5} />
                                         </span>
                                     </div>
                                 </div>
