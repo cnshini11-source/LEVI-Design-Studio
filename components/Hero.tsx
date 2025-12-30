@@ -253,7 +253,7 @@ export const Hero: React.FC = () => {
                     className="flex flex-col gap-4 mb-8 lg:mb-12 relative z-10 max-w-3xl"
                 >
                     <p className="text-xl md:text-2xl font-bold text-cyan-400 leading-tight">
-                        לוי בניית אתרים ודפי נחיתה
+                        לוי שיני בניית אתרים ודפי נחיתה
                     </p>
                     
                     <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">

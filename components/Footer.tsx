@@ -64,15 +64,14 @@ export const Footer: React.FC = () => {
           {/* SEO / Credits Section - Optimized for Keyword Ranking without visual clutter */}
           <div className="mt-8 pt-6 border-t border-white/5">
              <div className="text-[10px] text-slate-800 text-center leading-relaxed font-light max-w-5xl mx-auto space-y-2 hover:text-slate-600 transition-colors duration-500 cursor-default">
-                <h4 className="sr-only">לוי שיני בניית אתרים ודפי נחיתה</h4>
+                <h4 className="sr-only">לוי שיני בונה אתרים מקצועי מוסמך</h4>
                 <p>
-                   מחפש <strong>לוי שיני בונה אתרים</strong>? הגעת למקום הנכון. 
-                   אנו הכתובת המדויקת עבור <strong>לוי בונה אתרים שמביאים תכלס לקוחות</strong>.
-                   המומחיות שלנו היא פיתוח <strong>לוי אתרים ודפי נחיתה ממירים</strong> שמייצרים רווחים.
+                   נעים להכיר, <strong>לוי שיני בונה אתרים מקצועי מוסמך</strong>. 
+                   הגעתם למקום הנכון לשינוי עסקי אמיתי. אני מתמחה ב<strong>בניית דפי נחיתה ואתרים הכי ממירים שיש</strong>.
                 </p>
                 <p>
-                   בין אם אתה צריך דף נחיתה או אתר תדמית, לוי שיני בונה אתרים עם טכנולוגיה מתקדמת לקידום בגוגל.
-                   אל תתפשר על פחות מאתר שעובד בשבילך.
+                   המטרה שלי היא פשוטה: לבנות לך נכס דיגיטלי שמביא <strong>תכלס הרבה כסף ולקוחות</strong> לעסק שלך.
+                   אל תתפשר על פחות מהטוב ביותר – לוי שיני בונה אתרים שמנצחים את התחרות.
                 </p>
              </div>
           </div>
